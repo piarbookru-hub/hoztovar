@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
 <meta charset="UTF-8">
-<meta name="cms-deploy-id" content="dmwth3xl08w9ms8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Всё для ремонта — магазин хозяйственных товаров на Трофимова, 16а</title>
 <meta name="description" content="Магазин хозяйственных товаров «Всё для ремонта» в Москве: инструменты, крепёж, краски и всё для ремонта в одном месте. ул. Трофимова, 16а. Доставка.">
 <link rel="icon" type="image/x-icon" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --brown-900:#241609;
@@ -71,7 +71,7 @@ section{scroll-margin-top:92px}
 .menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ===== HERO ===== */
-.hero{padding:120px 0 30px}
+.hero{padding:108px 0 20px}
 .hero-card{
   position:relative;
   border-radius:var(--radius);
@@ -81,6 +81,7 @@ section{scroll-margin-top:92px}
   display:flex;
   align-items:center;
   background:#5a4a38;
+  border:2px solid var(--brown-500);
 }
 .hero-card .hero-bg{
   position:absolute;
@@ -155,15 +156,15 @@ section{scroll-margin-top:92px}
 .ph.loaded .ph-name{display:none}
 
 /* ===== СЕКЦИИ-ЛИСТЫ ===== */
-.section{padding:24px 0}
+.section{padding:16px 0}
 .sheet{
-  background:rgba(246,239,228,.97);
+  background:rgba(246,239,228,.88);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:52px 46px;
+  padding:30px 36px;
 }
 .section-title{font-size:clamp(26px,3.4vw,38px);font-weight:700;color:var(--brown-800);text-transform:uppercase;text-align:center;margin-bottom:14px}
-.section-sub{text-align:center;color:var(--text-soft);max-width:640px;margin:0 auto 40px}
+.section-sub{text-align:center;color:var(--text-soft);max-width:640px;margin:0 auto 22px}
 
 /* ===== ПРЕИМУЩЕСТВА ===== */
 .adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
@@ -211,17 +212,21 @@ section{scroll-margin-top:92px}
 .faq-a-inner{padding:0 22px 20px;color:var(--text-soft);font-size:15px}
 
 /* ===== КОНТАКТЫ ===== */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
-.c-list{list-style:none;margin-bottom:24px}
-.c-list li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--tan-light)}
-.c-list li:last-child{border-bottom:none}
-.c-ico{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:var(--shadow-sm)}
-.c-list strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-soft);margin-bottom:2px}
-.c-list a,.c-list span{color:var(--brown-800);text-decoration:none;font-weight:600;font-size:16px}
-.c-list a:hover{color:var(--brown-600)}
-.map-wrap{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--tan-light)}
-.map-wrap iframe{width:100%;height:300px;border:0;display:block}
-.form-box{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:32px;box-shadow:var(--shadow-sm)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch;margin-bottom:34px}
+
+/* Карточки контактов */
+.c-cards{display:flex;flex-direction:column;justify-content:space-between;height:100%;gap:14px}
+.c-card{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.c-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.c-ico{width:42px;height:42px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--shadow-sm)}
+.c-card-body strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-soft);margin-bottom:3px;font-weight:700}
+.c-card-body a,.c-card-body span{color:var(--brown-800);text-decoration:none;font-weight:600;font-size:15px;line-height:1.4}
+.c-card-body a:hover{color:var(--brown-600)}
+.c-card-body a + a{display:inline-block;margin-top:2px}
+
+.map-wrap{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--tan-light);height:300px;position:relative}
+.map-wrap iframe{width:100%;height:100%;border:0;display:block}
+.form-box{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:32px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 .form-box h3{font-size:22px;color:var(--brown-800);text-transform:uppercase;margin-bottom:6px}
 .form-box .f-sub{font-size:14px;color:var(--text-soft);margin-bottom:20px}
 .f-group{margin-bottom:15px}
@@ -235,7 +240,7 @@ section{scroll-margin-top:92px}
 .agree-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-soft);margin:6px 0 18px}
 .agree-row input{width:20px;height:20px;flex-shrink:0;margin-top:2px;accent-color:var(--brown-600)}
 .agree-row a{color:var(--brown-600);font-weight:700}
-.f-send{width:100%}
+.f-send{width:100%;margin-top:auto}
 
 /* ===== ФУТЕР ===== */
 .footer{
@@ -314,11 +319,11 @@ section{scroll-margin-top:92px}
   .hero-ph{right:auto;left:50%;top:auto;bottom:16px;transform:translateX(-50%)}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .contact-grid{grid-template-columns:1fr}
-  .sheet{padding:36px 24px}
+  .sheet{padding:24px 18px}
 }
 @media(max-width:560px){
   .gallery-grid{grid-template-columns:1fr}
-  .hero{padding:100px 0 24px}
+  .hero{padding:96px 0 18px}
   .hero-text h1{gap:10px}
   .hero-card{min-height:440px}
   .fab{width:48px;height:48px;font-size:19px}
@@ -330,15 +335,15 @@ section{scroll-margin-top:92px}
 <!-- ШАПКА -->
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="#top" class="logo"><span class="logo-icon">🛠</span><span data-edit="auto_1">Всё для ремонта</span></a>
+    <a href="#top" class="logo"><span class="logo-icon">🛠</span>Всё для ремонта</a>
     <nav class="nav" id="nav">
-      <a href="#advantages"><span data-edit="auto_2">Преимущества</span></a>
-      <a href="#gallery"><span data-edit="auto_3">Галерея</span></a>
-      <a href="#team"><span data-edit="auto_4">Команда</span></a>
-      <a href="#faq"><span data-edit="auto_5">Вопросы</span></a>
-      <a href="#contacts"><span data-edit="auto_6">Контакты</span></a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#team">Команда</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
     </nav>
-    <a class="header-phone" href="tel:+79037123653"><span data-edit="auto_7">+7 (903) 712-36-53</span></a>
+    <a class="header-phone" href="tel:+79037123653">+7 (903) 712-36-53</a>
     <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -347,13 +352,13 @@ section{scroll-margin-top:92px}
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-card">
-      <img class="hero-bg" src="images/hero.jpg" alt="Магазин «Всё для ремонта»" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/hero.jpg" data-img-id="img_1">
+      <img class="hero-bg" src="images/hero.jpg" alt="Магазин «Всё для ремонта»" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
       <div class="hero-text">
-        <h1><span data-edit="auto_8">Всё для ремонта </span><span class="badge-delivery"><span data-edit="auto_9">доставка</span></span></h1>
-        <p><span data-edit="auto_10">Магазин хозяйственных товаров. Инструменты, крепёж, краски и всё для ремонта — в одном месте.</span></p>
-        <div><a class="btn" href="tel:+79037123653"><span data-edit="auto_11">📞 Позвонить</span></a></div>
+        <h1>Всё для ремонта <span class="badge-delivery">доставка</span></h1>
+        <p>Магазин хозяйственных товаров. Инструменты, крепёж, краски и всё для ремонта — в одном месте.</p>
+        <div><a class="btn" href="tel:+79037123653">📞 Позвонить</a></div>
       </div>
-      <span class="hero-ph" id="heroPh"><span data-edit="auto_12">hero.jpg</span></span>
+      <span class="hero-ph" id="heroPh">hero.jpg</span>
     </div>
   </div>
 </section>
@@ -362,28 +367,28 @@ section{scroll-margin-top:92px}
 <section class="section" id="advantages">
   <div class="container">
     <div class="sheet">
-      <h2 class="section-title"><span data-edit="auto_13">Почему выбирают нас</span></h2>
-      <p class="section-sub"><span data-edit="auto_14">Мы работаем для тех, кто делает ремонт сам и для тех, кто строит профессионально</span></p>
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <p class="section-sub">Мы работаем для тех, кто делает ремонт сам и для тех, кто строит профессионально</p>
       <div class="adv-grid">
         <div class="adv-card">
           <div class="adv-icon">🧰</div>
-          <h3><span data-edit="auto_15">Всё для ремонта в одном месте</span></h3>
-          <p><span data-edit="auto_16">От крепежа до электроинструмента — не нужно ездить по разным магазинам.</span></p>
+          <h3>Всё для ремонта в одном месте</h3>
+          <p>От крепежа до электроинструмента — не нужно ездить по разным магазинам.</p>
         </div>
         <div class="adv-card">
           <div class="adv-icon">🤝</div>
-          <h3><span data-edit="auto_17">Консультация опытных продавцов</span></h3>
-          <p><span data-edit="auto_18">Поможем подобрать именно то, что подходит для вашей задачи.</span></p>
+          <h3>Консультация опытных продавцов</h3>
+          <p>Поможем подобрать именно то, что подходит для вашей задачи.</p>
         </div>
         <div class="adv-card">
           <div class="adv-icon">📍</div>
-          <h3><span data-edit="auto_19">Удобное расположение</span></h3>
-          <p><span data-edit="auto_20">Москва, ул. Трофимова, 16а — легко добраться на машине и пешком.</span></p>
+          <h3>Удобное расположение</h3>
+          <p>Москва, ул. Трофимова, 16а — легко добраться на машине и пешком.</p>
         </div>
         <div class="adv-card">
           <div class="adv-icon">🚚</div>
-          <h3><span data-edit="auto_21">Доставка</span></h3>
-          <p><span data-edit="auto_22">Привезём покупки по адресу — вовремя и аккуратно.</span></p>
+          <h3>Доставка</h3>
+          <p>Привезём покупки по адресу — вовремя и аккуратно.</p>
         </div>
       </div>
     </div>
@@ -394,15 +399,15 @@ section{scroll-margin-top:92px}
 <section class="section" id="gallery">
   <div class="container">
     <div class="sheet">
-      <h2 class="section-title"><span data-edit="auto_23">Наш магазин</span></h2>
-      <p class="section-sub"><span data-edit="auto_24">Загляните к нам — клик по фото копирует имя файла для замены</span></p>
+      <h2 class="section-title">Наш магазин</h2>
+      <p class="section-sub">Загляните к нам — клик по фото копирует имя файла для замены</p>
       <div class="gallery-grid">
-        <div class="ph g-item" data-file="gallery1.jpg"><img src="images/gallery1.jpg" alt="Вход в магазин" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery1.jpg" data-img-id="img_2"><span class="ph-name"><span data-edit="auto_25">gallery1.jpg</span></span><div class="g-cap"><span data-edit="auto_26">Вход в магазин</span></div></div>
-        <div class="ph g-item" data-file="gallery2.jpg"><img src="images/gallery2.jpg" alt="Отдел инструментов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery2.jpg" data-img-id="img_3"><span class="ph-name"><span data-edit="auto_27">gallery2.jpg</span></span><div class="g-cap"><span data-edit="auto_28">Отдел инструментов</span></div></div>
-        <div class="ph g-item" data-file="gallery3.jpg"><img src="images/gallery3.jpg" alt="Краски и лаки" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery3.jpg" data-img-id="img_4"><span class="ph-name"><span data-edit="auto_29">gallery3.jpg</span></span><div class="g-cap"><span data-edit="auto_30">Краски и лаки</span></div></div>
-        <div class="ph g-item" data-file="gallery4.jpg"><img src="images/gallery4.jpg" alt="Крепёж и метизы" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery4.jpg" data-img-id="img_5"><span class="ph-name"><span data-edit="auto_31">gallery4.jpg</span></span><div class="g-cap"><span data-edit="auto_32">Крепёж и метизы</span></div></div>
-        <div class="ph g-item" data-file="gallery5.jpg"><img src="images/gallery5.jpg" alt="Отдел электрики" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery5.jpg" data-img-id="img_6"><span class="ph-name"><span data-edit="auto_33">gallery5.jpg</span></span><div class="g-cap"><span data-edit="auto_34">Отдел электрики</span></div></div>
-        <div class="ph g-item" data-file="gallery6.jpg"><img src="images/gallery6.jpg" alt="Прикассовая зона" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery6.jpg" data-img-id="img_7"><span class="ph-name"><span data-edit="auto_35">gallery6.jpg</span></span><div class="g-cap"><span data-edit="auto_36">Прикассовая зона</span></div></div>
+        <div class="ph g-item" data-file="gallery1.jpg"><img src="images/gallery1.jpg" alt="Вход в магазин" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery1.jpg</span><div class="g-cap">Вход в магазин</div></div>
+        <div class="ph g-item" data-file="gallery2.jpg"><img src="images/gallery2.jpg" alt="Отдел инструментов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery2.jpg</span><div class="g-cap">Отдел инструментов</div></div>
+        <div class="ph g-item" data-file="gallery3.jpg"><img src="images/gallery3.jpg" alt="Краски и лаки" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery3.jpg</span><div class="g-cap">Краски и лаки</div></div>
+        <div class="ph g-item" data-file="gallery4.jpg"><img src="images/gallery4.jpg" alt="Крепёж и метизы" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery4.jpg</span><div class="g-cap">Крепёж и метизы</div></div>
+        <div class="ph g-item" data-file="gallery5.jpg"><img src="images/gallery5.jpg" alt="Отдел электрики" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery5.jpg</span><div class="g-cap">Отдел электрики</div></div>
+        <div class="ph g-item" data-file="gallery6.jpg"><img src="images/gallery6.jpg" alt="Прикассовая зона" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery6.jpg</span><div class="g-cap">Прикассовая зона</div></div>
       </div>
     </div>
   </div>
@@ -412,34 +417,34 @@ section{scroll-margin-top:92px}
 <section class="section" id="team">
   <div class="container">
     <div class="sheet">
-      <h2 class="section-title"><span data-edit="auto_37">Наши продавцы</span></h2>
-      <p class="section-sub"><span data-edit="auto_38">Люди, которые знают товар и помогут с выбором</span></p>
+      <h2 class="section-title">Наши продавцы</h2>
+      <p class="section-sub">Люди, которые знают товар и помогут с выбором</p>
       <div class="team-grid">
         <div class="team-card">
-          <div class="ph team-photo" data-file="team1.jpg" data-img="images/team1.jpg" data-img-id="img_8"><img src="images/team1.jpg" alt="Сергей Панов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_39">team1.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team1.jpg"><img src="images/team1.jpg" alt="Сергей Панов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team1.jpg</span></div>
           <div class="team-info">
-            <h3><span data-edit="auto_40">Сергей Панов</span></h3>
-            <div class="team-pos"><span data-edit="auto_41">Старший продавец</span></div>
-            <div class="team-exp"><span data-edit="auto_42">Опыт: 12 лет</span></div>
-            <p><span data-edit="auto_43">Знает всё об инструменте и крепеже. Соберёт комплект под любую задачу.</span></p>
+            <h3>Сергей Панов</h3>
+            <div class="team-pos">Старший продавец</div>
+            <div class="team-exp">Опыт: 12 лет</div>
+            <p>Знает всё об инструменте и крепеже. Соберёт комплект под любую задачу.</p>
           </div>
         </div>
         <div class="team-card">
-          <div class="ph team-photo" data-file="team2.jpg" data-img="images/team2.jpg" data-img-id="img_9"><img src="images/team2.jpg" alt="Ирина Мельникова" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_44">team2.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team2.jpg"><img src="images/team2.jpg" alt="Ирина Мельникова" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team2.jpg</span></div>
           <div class="team-info">
-            <h3><span data-edit="auto_45">Ирина Мельникова</span></h3>
-            <div class="team-pos"><span data-edit="auto_46">Продавец-консультант</span></div>
-            <div class="team-exp"><span data-edit="auto_47">Опыт: 7 лет</span></div>
-            <p><span data-edit="auto_48">Поможет подобрать краски, лаки и сопутствующие товары. Внимательна к деталям.</span></p>
+            <h3>Ирина Мельникова</h3>
+            <div class="team-pos">Продавец-консультант</div>
+            <div class="team-exp">Опыт: 7 лет</div>
+            <p>Поможет подобрать краски, лаки и сопутствующие товары. Внимательна к деталям.</p>
           </div>
         </div>
         <div class="team-card">
-          <div class="ph team-photo" data-file="team3.jpg" data-img="images/team3.jpg" data-img-id="img_10"><img src="images/team3.jpg" alt="Виктор Гусев" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_49">team3.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team3.jpg"><img src="images/team3.jpg" alt="Виктор Гусев" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team3.jpg</span></div>
           <div class="team-info">
-            <h3><span data-edit="auto_50">Виктор Гусев</span></h3>
-            <div class="team-pos"><span data-edit="auto_51">Продавец, электрика</span></div>
-            <div class="team-exp"><span data-edit="auto_52">Опыт: 9 лет</span></div>
-            <p><span data-edit="auto_53">Подскажет по кабелю, розеткам и освещению. Рассчитает материалы по метражу.</span></p>
+            <h3>Виктор Гусев</h3>
+            <div class="team-pos">Продавец, электрика</div>
+            <div class="team-exp">Опыт: 9 лет</div>
+            <p>Подскажет по кабелю, розеткам и освещению. Рассчитает материалы по метражу.</p>
           </div>
         </div>
       </div>
@@ -451,31 +456,31 @@ section{scroll-margin-top:92px}
 <section class="section" id="faq">
   <div class="container">
     <div class="sheet">
-      <h2 class="section-title"><span data-edit="auto_54">Вопросы и ответы</span></h2>
-      <p class="section-sub"><span data-edit="auto_55">Собрали то, о нас спрашивают чаще всего</span></p>
+      <h2 class="section-title">Вопросы и ответы</h2>
+      <p class="section-sub">Собрали то, о нас спрашивают чаще всего</p>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_56">Какой у вас режим работы?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_57">Пн–Пт 09:00–20:00, суббота 10:00–14:00, воскресенье — выходной.</span></div></div>
+        <button class="faq-q">Какой у вас режим работы?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Пн–Пт 09:00–20:00, суббота 10:00–14:00, воскресенье — выходной.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_58">Где вы находитесь?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_59">Москва, ул. Трофимова, 16а. Точное расположение смотрите на карте в блоке контактов.</span></div></div>
+        <button class="faq-q">Где вы находитесь?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Москва, ул. Трофимова, 16а. Точное расположение смотрите на карте в блоке контактов.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_60">Есть ли доставка?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_61">Да, доставляем покупки по Москве и области. Стоимость и сроки уточните по телефону +7 (903) 712-36-53.</span></div></div>
+        <button class="faq-q">Есть ли доставка?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да, доставляем покупки по Москве и области. Стоимость и сроки уточните по телефону +7 (903) 712-36-53.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_62">Можно ли оплатить картой?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_63">Да, принимаем наличные и банковские карты.</span></div></div>
+        <button class="faq-q">Можно ли оплатить картой?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да, принимаем наличные и банковские карты.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_64">Поможете подобрать материалы?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_65">Конечно. Опытные продавцы проконсультируют, подскажут аналоги и рассчитают нужное количество.</span></div></div>
+        <button class="faq-q">Поможете подобрать материалы?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Конечно. Опытные продавцы проконсультируют, подскажут аналоги и рассчитают нужное количество.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_66">Как сделать заказ или задать вопрос?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_67">Позвоните по телефону +7 (903) 712-36-53, оставьте заявку через форму на сайте или напишите нам в группу ВКонтакте.</span></div></div>
+        <button class="faq-q">Как сделать заказ или задать вопрос?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Позвоните по телефону +7 (903) 712-36-53, оставьте заявку через форму на сайте или напишите нам в группу ВКонтакте.</div></div>
       </div>
     </div>
   </div>
@@ -485,45 +490,43 @@ section{scroll-margin-top:92px}
 <section class="section" id="contacts">
   <div class="container">
     <div class="sheet">
-      <h2 class="section-title"><span data-edit="auto_68">Контакты</span></h2>
-      <p class="section-sub"><span data-edit="auto_69">Приходите в магазин или оставьте заявку — мы перезвоним</span></p>
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-sub">Приходите в магазин или оставьте заявку — мы перезвоним</p>
       <div class="contact-grid">
-        <div>
-          <ul class="c-list">
-            <li><div class="c-ico">📍</div><div><strong><span data-edit="auto_70">Адрес</span></strong><span><span data-edit="auto_71">Москва, ул. Трофимова, 16а</span></span></div></li>
-            <li><div class="c-ico">📞</div><div><strong><span data-edit="auto_72">Телефон</span></strong><a href="tel:+79037123653"><span data-edit="auto_73">+7 (903) 712-36-53</span></a><br><a href="tel:+79154275588"><span data-edit="auto_74">+7 (915) 427-55-88</span></a></div></li>
-            <li><div class="c-ico">🕘</div><div><strong><span data-edit="auto_75">Режим работы</span></strong><span><span data-edit="auto_76">Пн–Пт 09:00–20:00 · Сб 10:00–14:00 · Вс — выходной</span></span></div></li>
-            <li><div class="c-ico">✉️</div><div><strong><span data-edit="auto_77">E-mail</span></strong><a href="mailto:info@vse-dlya-remonta.ru"><span data-edit="auto_78">info@vse-dlya-remonta.ru</span></a></div></li>
-            <li><div class="c-ico">💬</div><div><strong><span data-edit="auto_79">Мы ВКонтакте</span></strong><a href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener"><span data-edit="auto_80">vk.ru/remontnatrofimova</span></a></div></li>
-          </ul>
-          <div class="map-wrap">
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.663245%2C55.705517&amp;z=16&amp;pt=37.663245,55.705517,pm2rdm" title="Магазин «Всё для ремонта» на карте" loading="lazy" allowfullscreen=""></iframe>
-          </div>
-        </div>
         <form class="form-box" action="https://formsubmit.co/info@vse-dlya-remonta.ru" method="POST">
-          <h3><span data-edit="auto_81">Оставить заявку</span></h3>
-          <p class="f-sub"><span data-edit="auto_82">Заполните форму — мы перезвоним и ответим на вопросы</span></p>
+          <h3>Оставить заявку</h3>
+          <p class="f-sub">Заполните форму — мы перезвоним и ответим на вопросы</p>
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Заявка с сайта «Всё для ремонта»">
           <input type="hidden" name="_template" value="table">
           <div class="f-group">
-            <label for="f-name"><span data-edit="auto_83">Ваше имя *</span></label>
-            <input type="text" id="f-name" name="name" required="" placeholder="Как к вам обращаться">
+            <label for="f-name">Ваше имя *</label>
+            <input type="text" id="f-name" name="name" required placeholder="Как к вам обращаться">
           </div>
           <div class="f-group">
-            <label for="f-phone"><span data-edit="auto_84">Телефон *</span></label>
-            <input type="tel" id="f-phone" name="phone" required="" placeholder="+7 (___) ___-__-__">
+            <label for="f-phone">Телефон *</label>
+            <input type="tel" id="f-phone" name="phone" required placeholder="+7 (___) ___-__-__">
           </div>
           <div class="f-group">
-            <label for="f-msg"><span data-edit="auto_85">Сообщение</span></label>
+            <label for="f-msg">Сообщение</label>
             <textarea id="f-msg" name="message" placeholder="Что вас интересует?"></textarea>
           </div>
           <label class="agree-row">
             <input type="checkbox" id="agree">
-            <span><span data-edit="auto_86">Я согласен на </span><a href="privacy.html" target="_blank" rel="noopener"><span data-edit="auto_87">обработку персональных данных</span></a><span data-edit="auto_88"> в соответствии с политикой конфиденциальности</span></span>
+            <span>Я согласен на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a> в соответствии с политикой конфиденциальности</span>
           </label>
-          <button type="submit" class="btn f-send" id="sendBtn" disabled=""><span data-edit="auto_89">Отправить заявку</span></button>
+          <button type="submit" class="btn f-send" id="sendBtn" disabled>Отправить заявку</button>
         </form>
+        <div class="c-cards">
+          <div class="c-card"><div class="c-ico">📍</div><div class="c-card-body"><strong>Адрес</strong><span>Москва, ул. Трофимова, 16а</span></div></div>
+          <div class="c-card"><div class="c-ico">📞</div><div class="c-card-body"><strong>Телефон</strong><a href="tel:+79037123653">+7 (903) 712-36-53</a><br><a href="tel:+79154275588">+7 (915) 427-55-88</a></div></div>
+          <div class="c-card"><div class="c-ico">🕘</div><div class="c-card-body"><strong>Режим работы</strong><span>Пн–Пт 09:00–20:00<br>Сб 10:00–14:00<br>Вс — выходной</span></div></div>
+          <div class="c-card"><div class="c-ico">✉️</div><div class="c-card-body"><strong>E-mail</strong><a href="mailto:info@vse-dlya-remonta.ru">info@vse-dlya-remonta.ru</a></div></div>
+          <div class="c-card"><div class="c-ico">💬</div><div class="c-card-body"><strong>Мы ВКонтакте</strong><a href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener">vk.ru/remontnatrofimova</a></div></div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.66586%2C55.69966%2C37.67586%2C55.70566&amp;layer=mapnik&amp;marker=55.70266%2C37.67086" title="Магазин «Всё для ремонта» на карте" loading="lazy" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -532,11 +535,11 @@ section{scroll-margin-top:92px}
 <!-- ФУТЕР -->
 <footer class="footer">
   <div class="container footer-inner">
-    <div><span data-edit="auto_90">© 2026 «Всё для ремонта» · Магазин хозяйственных товаров</span></div>
+    <div>© 2026 «Всё для ремонта» · Магазин хозяйственных товаров</div>
     <div class="footer-links">
-      <a href="privacy.html"><span data-edit="auto_91">📄 Политика конфиденциальности</span></a>
+      <a href="privacy.html">📄 Политика конфиденциальности</a>
       <span class="sep"> · </span>
-      <a href="cookie-policy.html"><span data-edit="auto_92">🍪 Политика cookies</span></a>
+      <a href="cookie-policy.html">🍪 Политика cookies</a>
     </div>
   </div>
 </footer>
@@ -544,16 +547,16 @@ section{scroll-margin-top:92px}
 <!-- ПЛАВАЮЩИЕ КНОПКИ -->
 <div class="fab-stack">
   <a class="fab fab-up" id="fabUp" href="#top" aria-label="Наверх">↑</a>
-  <a class="fab fab-vk" href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener" aria-label="Группа ВКонтакте"><span data-edit="auto_93">VK</span></a>
+  <a class="fab fab-vk" href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener" aria-label="Группа ВКонтакте">VK</a>
   <a class="fab fab-phone" href="tel:+79037123653" aria-label="Позвонить">📞</a>
 </div>
 
 <!-- COOKIE-БАННЕР -->
 <div class="cookie-bar" id="cookieBar">
-  <span><span data-edit="auto_94">🍪 Мы используем файлы cookie для работы сайта. Подробнее — в </span><a href="cookie-policy.html"><span data-edit="auto_95">политике cookies</span></a>.</span>
+  <span>🍪 Мы используем файлы cookie для работы сайта. Подробнее — в <a href="cookie-policy.html">политике cookies</a>.</span>
   <div class="cookie-btns">
-    <button class="cookie-btn cookie-accept" onclick="cookieChoice('yes')"><span data-edit="auto_96">Принять</span></button>
-    <button class="cookie-btn cookie-decline" onclick="cookieChoice('no')"><span data-edit="auto_97">Отклонить</span></button>
+    <button class="cookie-btn cookie-accept" onclick="cookieChoice('yes')">Принять</button>
+    <button class="cookie-btn cookie-decline" onclick="cookieChoice('no')">Отклонить</button>
   </div>
 </div>
 
@@ -569,7 +572,7 @@ k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNo
 (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
 <script>
 // ===== БУРГЕР =====
@@ -658,5 +661,5 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
-
-</body></html>
+</body>
+</html>
