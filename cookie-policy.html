@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика использования cookies — «Всё для ремонта»</title>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown-900:#241609;
+  --brown-800:#33210f;
+  --brown-700:#4d3319;
+  --brown-600:#6b4a26;
+  --tan:#c9a87c;
+  --tan-light:#e6d5ba;
+  --cream:#f6efe4;
+  --white:#fffdf8;
+  --text-dark:#2b1c0e;
+  --text-soft:#6d5b45;
+  --shadow:0 12px 32px rgba(20,12,4,.38);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Roboto',Arial,sans-serif;
+  color:var(--text-dark);
+  background:var(--brown-900);
+  line-height:1.65;
+  font-size:16px;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background:var(--brown-900) url('images/bg.jpg') center/cover no-repeat;
+  filter:blur(10px) brightness(.45) saturate(.9);
+  transform:scale(1.08);
+}
+.wrap{max-width:880px;margin:0 auto;padding:40px 20px 60px}
+.sheet{
+  background:rgba(246,239,228,.97);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:50px 46px;
+}
+.back-link{display:inline-block;margin-bottom:22px;color:var(--tan);text-decoration:none;font-weight:700;font-size:15px}
+.back-link:hover{color:var(--brown-800)}
+h1{font-family:'Oswald',Arial,sans-serif;font-size:clamp(26px,3.5vw,36px);color:var(--brown-800);text-transform:uppercase;margin-bottom:6px}
+.doc-sub{color:var(--text-soft);font-size:14px;margin-bottom:30px}
+h2{font-family:'Oswald',Arial,sans-serif;font-size:20px;color:var(--brown-800);text-transform:uppercase;margin:28px 0 10px}
+p{margin-bottom:12px;color:var(--text-dark)}
+ul{margin:8px 0 14px 22px}
+ul li{margin-bottom:5px}
+strong{color:var(--brown-800)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+table th,table td{border:1px solid var(--tan-light);padding:10px 12px;text-align:left;vertical-align:top}
+table th{background:var(--tan-light);color:var(--brown-800);text-transform:uppercase;font-size:12px;letter-spacing:.5px}
+.fab-up{
+  position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;
+  background:var(--brown-700);color:var(--cream);border:none;cursor:pointer;
+  font-size:22px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.3s;
+}
+.fab-up.show{opacity:1;pointer-events:auto}
+.fab-up:hover{transform:scale(1.1)}
+@media(max-width:640px){.sheet{padding:34px 22px}.wrap{padding:28px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sheet">
+    <a class="back-link" href="index.html">← Вернуться на сайт</a>
+    <h1>Политика использования cookies</h1>
+    <div class="doc-sub">как сайт «Всё для ремонта» использует файлы cookie</div>
+
+    <h2>1. Что такое cookies</h2>
+    <p>Cookies — это небольшие текстовые файлы, которые сохраняются на вашем устройстве при посещении сайта. Они помогают сайту запоминать ваши действия и предпочтения.</p>
+
+    <h2>2. Какие cookies мы используем</h2>
+    <table>
+      <thead><tr><th>Тип</th><th>Назначение</th><th>Срок хранения</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Технические</strong></td><td>Запоминание выбора по баннеру cookie</td><td>до 1 года</td></tr>
+        <tr><td><strong>Аналитические</strong></td><td>Яндекс.Метрика — статистика посещений</td><td>до 2 лет</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Для чего нужны cookies</h2>
+    <ul>
+      <li>Чтобы не показывать баннер cookie повторно</li>
+      <li>Для анализа посещаемости и улучшения работы сайта</li>
+      <li>Для корректной работы форм и интерактивных элементов</li>
+    </ul>
+
+    <h2>4. Сторонние сервисы</h2>
+    <p>На сайте могут работать сторонние сервисы, которые устанавливают свои cookie:</p>
+    <ul>
+      <li><strong>Яндекс.Метрика</strong> — аналитика посещений (Яндекс)</li>
+      <li><strong>Яндекс.Карты</strong> — интерактивная карта в разделе контактов</li>
+      <li><strong>FormSubmit</strong> — обработка и отправка заявок</li>
+    </ul>
+
+    <h2>5. Управление cookies</h2>
+    <p>Вы можете отключить или удалить cookie в настройках своего браузера:</p>
+    <ul>
+      <li>Google Chrome: Настройки → Конфиденциальность и безопасность → Файлы cookie</li>
+      <li>Яндекс.Браузер: Настройки → Сайты → Расширенные настройки сайтов</li>
+      <li>Safari: Настройки → Конфиденциальность</li>
+      <li>Mozilla Firefox: Настройки → Приватность и защита</li>
+    </ul>
+    <p>Отключение cookie может повлиять на работу некоторых функций сайта.</p>
+
+    <h2>6. Отзыв согласия</h2>
+    <p>Чтобы сбросить ранее данный выбор по баннеру cookie, очистите данные сайта в настройках браузера. При следующем посещении баннер появится снова.</p>
+
+    <h2>7. Изменение политики</h2>
+    <p>Оператор сайта вправе изменять настоящую Политику. Актуальная версия всегда доступна по этому адресу.</p>
+
+    <h2>8. Контакты</h2>
+    <p>По вопросам обработки cookie: <strong>info@vse-dlya-remonta.ru</strong>, телефон <strong>+7 (903) 712-36-53</strong>.</p>
+
+    <p style="margin-top:30px"><a href="privacy.html" style="color:var(--brown-600);font-weight:700">→ Политика конфиденциальности (персональные данные)</a></p>
+  </div>
+</div>
+
+<button class="fab-up" id="fabUp" aria-label="Наверх">↑</button>
+<script>
+window.addEventListener('scroll', () => document.getElementById('fabUp').classList.toggle('show', scrollY > 300));
+document.getElementById('fabUp').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Всё для ремонта — магазин хозяйственных товаров на Трофимова, 16а</title>
+<meta name="description" content="Магазин хозяйственных товаров «Всё для ремонта» в Москве: инструменты, крепёж, краски и всё для ремонта в одном месте. ул. Трофимова, 16а. Доставка.">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown-900:#241609;
+  --brown-800:#33210f;
+  --brown-700:#4d3319;
+  --brown-600:#6b4a26;
+  --brown-500:#8a6236;
+  --tan:#c9a87c;
+  --tan-light:#e6d5ba;
+  --cream:#f6efe4;
+  --white:#fffdf8;
+  --text-dark:#2b1c0e;
+  --text-soft:#6d5b45;
+  --shadow:0 12px 32px rgba(20,12,4,.38);
+  --shadow-sm:0 6px 18px rgba(20,12,4,.28);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Roboto',Arial,sans-serif;
+  color:var(--text-dark);
+  background:var(--brown-900);
+  line-height:1.6;
+  font-size:16px;
+}
+/* Размытая подложка хозяйственного магазина на весь сайт */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:var(--brown-900) url('images/bg.jpg') center/cover no-repeat;
+  filter:blur(10px) brightness(.45) saturate(.9);
+  transform:scale(1.08);
+}
+h1,h2,h3,h4{font-family:'Oswald',Arial,sans-serif;letter-spacing:.3px}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+section{scroll-margin-top:92px}
+
+/* ===== ШАПКА ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(36,22,9,.93);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 4px 18px rgba(0,0,0,.45);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream);font-family:'Oswald';font-weight:600;font-size:21px;text-transform:uppercase}
+.logo-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:var(--shadow-sm)}
+.nav{display:flex;gap:26px}
+.nav a{color:var(--tan-light);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
+.nav a:hover{color:var(--tan)}
+.header-phone{color:var(--cream);text-decoration:none;font-weight:700;font-size:17px;white-space:nowrap;transition:color .2s}
+.header-phone:hover{color:var(--tan)}
+.burger{display:none;width:44px;height:44px;background:transparent;border:none;cursor:pointer;flex-direction:column;justify-content:center;gap:5px;align-items:center}
+.burger span{display:block;width:24px;height:2px;background:var(--cream);border-radius:2px;transition:.3s}
+.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== HERO ===== */
+.hero{padding:120px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.hero-text{
+  background:linear-gradient(135deg,rgba(36,22,9,.96),rgba(51,33,15,.88));
+  padding:56px 46px;
+  display:flex;flex-direction:column;justify-content:center;gap:22px;
+}
+.hero-text h1{font-size:clamp(34px,4.6vw,54px);font-weight:700;color:var(--cream);text-transform:uppercase;line-height:1.1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.badge-delivery{
+  font-family:'Roboto';font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  background:var(--tan);color:var(--brown-900);padding:7px 16px;border-radius:24px;box-shadow:var(--shadow-sm);
+}
+.hero-text p{color:var(--tan-light);font-size:clamp(15px,1.6vw,18px);max-width:460px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,var(--tan),var(--brown-500));
+  color:var(--brown-900);text-decoration:none;font-weight:700;font-size:16px;
+  padding:15px 34px;border-radius:12px;border:none;cursor:pointer;
+  box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;
+  font-family:'Roboto';min-height:48px;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.hero-photo{position:relative;min-height:420px;background:#5a4a38;cursor:pointer}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* левая часть фото затемнена, правая хорошо видна */
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,22,9,.85) 0%,rgba(36,22,9,.35) 45%,rgba(36,22,9,0) 75%)}
+.ph-name{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  background:rgba(36,22,9,.75);color:var(--tan-light);border:1px dashed var(--tan);
+  padding:10px 20px;border-radius:10px;font-size:14px;font-family:monospace;
+}
+.hero-photo.loaded .ph-name{display:none}
+
+/* ===== ЗАГЛУШКИ ФОТО ===== */
+.ph{position:relative;background:#5a4a38;overflow:hidden;cursor:pointer}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.ph .ph-name{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;background:rgba(36,22,9,.75);color:var(--tan-light);border:1px dashed var(--tan);padding:8px 16px;border-radius:10px;font-size:13px;font-family:monospace}
+.ph.loaded .ph-name{display:none}
+
+/* ===== СЕКЦИИ-ЛИСТЫ ===== */
+.section{padding:24px 0}
+.sheet{
+  background:rgba(246,239,228,.97);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:52px 46px;
+}
+.section-title{font-size:clamp(26px,3.4vw,38px);font-weight:700;color:var(--brown-800);text-transform:uppercase;text-align:center;margin-bottom:14px}
+.section-sub{text-align:center;color:var(--text-soft);max-width:640px;margin:0 auto 40px}
+
+/* ===== ПРЕИМУЩЕСТВА ===== */
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.adv-card{
+  background:var(--white);border:1px solid var(--tan-light);border-radius:14px;
+  padding:28px 22px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;
+}
+.adv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.adv-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.adv-card h3{font-size:18px;color:var(--brown-800);margin-bottom:8px;text-transform:uppercase}
+.adv-card p{font-size:14px;color:var(--text-soft)}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g-item{aspect-ratio:4/3;border-radius:14px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.g-item:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.g-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  background:linear-gradient(0deg,rgba(36,22,9,.85),rgba(36,22,9,0));
+  color:var(--cream);font-size:14px;font-weight:500;padding:26px 14px 12px;
+}
+
+/* ===== КОМАНДА ===== */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.team-card{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.team-photo{aspect-ratio:1/1}
+.team-info{padding:20px 20px 24px}
+.team-info h3{font-size:19px;color:var(--brown-800);text-transform:uppercase}
+.team-pos{color:var(--brown-600);font-weight:700;font-size:14px;margin:4px 0 2px}
+.team-exp{color:var(--tan);font-weight:700;font-size:13px;margin-bottom:8px}
+.team-info p{font-size:14px;color:var(--text-soft)}
+
+/* ===== FAQ ===== */
+.faq-item{background:var(--white);border:1px solid var(--tan-light);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.faq-q{
+  width:100%;text-align:left;background:transparent;border:none;cursor:pointer;
+  padding:18px 22px;font-size:16px;font-weight:700;color:var(--brown-800);
+  display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:'Roboto';
+}
+.faq-q:hover{color:var(--brown-600)}
+.faq-ico{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:var(--tan);color:var(--brown-900);display:flex;align-items:center;justify-content:center;font-weight:700;transition:transform .3s}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{padding:0 22px 20px;color:var(--text-soft);font-size:15px}
+
+/* ===== КОНТАКТЫ ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.c-list{list-style:none;margin-bottom:24px}
+.c-list li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--tan-light)}
+.c-list li:last-child{border-bottom:none}
+.c-ico{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:var(--shadow-sm)}
+.c-list strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-soft);margin-bottom:2px}
+.c-list a,.c-list span{color:var(--brown-800);text-decoration:none;font-weight:600;font-size:16px}
+.c-list a:hover{color:var(--brown-600)}
+.map-wrap{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--tan-light)}
+.map-wrap iframe{width:100%;height:300px;border:0;display:block}
+.form-box{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:32px;box-shadow:var(--shadow-sm)}
+.form-box h3{font-size:22px;color:var(--brown-800);text-transform:uppercase;margin-bottom:6px}
+.form-box .f-sub{font-size:14px;color:var(--text-soft);margin-bottom:20px}
+.f-group{margin-bottom:15px}
+.f-group label{display:block;font-size:13px;font-weight:700;color:var(--brown-700);margin-bottom:5px}
+.f-group input,.f-group textarea{
+  width:100%;padding:13px 14px;border:2px solid var(--tan-light);border-radius:10px;
+  font-size:15px;font-family:'Roboto';background:var(--cream);color:var(--text-dark);min-height:46px;
+}
+.f-group textarea{resize:vertical;min-height:96px}
+.f-group input:focus,.f-group textarea:focus{outline:none;border-color:var(--brown-500)}
+.agree-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-soft);margin:6px 0 18px}
+.agree-row input{width:20px;height:20px;flex-shrink:0;margin-top:2px;accent-color:var(--brown-600)}
+.agree-row a{color:var(--brown-600);font-weight:700}
+.f-send{width:100%}
+
+/* ===== ФУТЕР ===== */
+.footer{background:rgba(36,22,9,.96);padding:34px 0;box-shadow:0 -6px 20px rgba(0,0,0,.4)}
+.footer-inner{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;color:var(--tan-light);font-size:14px}
+.footer a{color:var(--tan);text-decoration:none}
+.footer a:hover{color:var(--tan-light)}
+.footer .sep{opacity:.5}
+
+/* ===== ПЛАВАЮЩИЕ КНОПКИ ===== */
+.fab-stack{position:fixed;right:18px;bottom:18px;z-index:90;display:flex;flex-direction:column;gap:10px;align-items:center}
+.fab{
+  width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:22px;box-shadow:var(--shadow);transition:transform .2s;
+}
+.fab:hover{transform:scale(1.1)}
+.fab-phone{background:linear-gradient(135deg,var(--tan),var(--brown-500));color:var(--brown-900)}
+.fab-vk{background:#0077ff;color:#fff;font-weight:700;font-size:16px;font-family:'Oswald'}
+.fab-up{background:var(--brown-700);color:var(--cream);opacity:0;pointer-events:none;transition:opacity .3s,transform .2s}
+.fab-up.show{opacity:1;pointer-events:auto}
+
+/* ===== COOKIE-БАННЕР ===== */
+.cookie-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:120;
+  background:rgba(36,22,9,.97);color:var(--tan-light);
+  padding:16px 20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;
+  box-shadow:0 -8px 24px rgba(0,0,0,.5);
+  transform:translateY(110%);transition:transform .4s;
+  font-size:14px;
+}
+.cookie-bar.show{transform:translateY(0)}
+.cookie-bar a{color:var(--tan)}
+.cookie-btns{display:flex;gap:10px}
+.cookie-btn{border:none;cursor:pointer;border-radius:10px;padding:10px 22px;font-weight:700;font-size:14px;font-family:'Roboto'}
+.cookie-accept{background:var(--tan);color:var(--brown-900)}
+.cookie-decline{background:transparent;color:var(--tan-light);border:1px solid var(--tan)}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;top:88px;left:50%;transform:translateX(-50%) translateY(-30px);z-index:200;
+  background:var(--brown-800);color:var(--cream);padding:12px 26px;border-radius:12px;
+  box-shadow:var(--shadow);font-size:14px;font-weight:600;opacity:0;transition:.3s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== АДАПТИВ ===== */
+@media(max-width:960px){
+  .nav{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(36,22,9,.98);flex-direction:column;padding:18px 24px;gap:16px;box-shadow:var(--shadow)}
+  .menu-open .nav{display:flex}
+  .burger{display:flex}
+  .header-phone{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{min-height:320px;order:2}
+  .hero-text{padding:40px 28px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .sheet{padding:36px 24px}
+}
+@media(max-width:560px){
+  .gallery-grid{grid-template-columns:1fr}
+  .hero{padding:100px 0 24px}
+  .hero-text h1{gap:10px}
+  .fab{width:48px;height:48px;font-size:19px}
+}
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#top" class="logo"><span class="logo-icon">🛠</span>Всё для ремонта</a>
+    <nav class="nav" id="nav">
+      <a href="#advantages">Преимущества</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#team">Команда</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+79037123653">+7 (903) 712-36-53</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Всё для ремонта <span class="badge-delivery">доставка</span></h1>
+        <p>Магазин хозяйственных товаров. Инструменты, крепёж, краски и всё для ремонта — в одном месте.</p>
+        <div><a class="btn" href="tel:+79037123653">📞 Позвонить</a></div>
+      </div>
+      <div class="hero-photo ph" data-file="hero.jpg" title="Кликните, чтобы скопировать имя файла">
+        <img src="images/hero.jpg" alt="Магазин «Всё для ремонта»" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()">
+        <span class="ph-name">hero.jpg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section class="section" id="advantages">
+  <div class="container">
+    <div class="sheet">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <p class="section-sub">Мы работаем для тех, кто делает ремонт сам и для тех, кто строит профессионально</p>
+      <div class="adv-grid">
+        <div class="adv-card">
+          <div class="adv-icon">🧰</div>
+          <h3>Всё для ремонта в одном месте</h3>
+          <p>От крепежа до электроинструмента — не нужно ездить по разным магазинам.</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">🤝</div>
+          <h3>Консультация опытных продавцов</h3>
+          <p>Поможем подобрать именно то, что подходит для вашей задачи.</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">📍</div>
+          <h3>Удобное расположение</h3>
+          <p>Москва, ул. Трофимова, 16а — легко добраться на машине и пешком.</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">🚚</div>
+          <h3>Доставка</h3>
+          <p>Привезём покупки по адресу — вовремя и аккуратно.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ГАЛЕРЕЯ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="sheet">
+      <h2 class="section-title">Наш магазин</h2>
+      <p class="section-sub">Загляните к нам — клик по фото копирует имя файла для замены</p>
+      <div class="gallery-grid">
+        <div class="ph g-item" data-file="gallery1.jpg"><img src="images/gallery1.jpg" alt="Вход в магазин" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery1.jpg</span><div class="g-cap">Вход в магазин</div></div>
+        <div class="ph g-item" data-file="gallery2.jpg"><img src="images/gallery2.jpg" alt="Отдел инструментов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery2.jpg</span><div class="g-cap">Отдел инструментов</div></div>
+        <div class="ph g-item" data-file="gallery3.jpg"><img src="images/gallery3.jpg" alt="Краски и лаки" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery3.jpg</span><div class="g-cap">Краски и лаки</div></div>
+        <div class="ph g-item" data-file="gallery4.jpg"><img src="images/gallery4.jpg" alt="Крепёж и метизы" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery4.jpg</span><div class="g-cap">Крепёж и метизы</div></div>
+        <div class="ph g-item" data-file="gallery5.jpg"><img src="images/gallery5.jpg" alt="Отдел электрики" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery5.jpg</span><div class="g-cap">Отдел электрики</div></div>
+        <div class="ph g-item" data-file="gallery6.jpg"><img src="images/gallery6.jpg" alt="Прикассовая зона" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">gallery6.jpg</span><div class="g-cap">Прикассовая зона</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОМАНДА -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="sheet">
+      <h2 class="section-title">Наши продавцы</h2>
+      <p class="section-sub">Люди, которые знают товар и помогут с выбором</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="ph team-photo" data-file="team1.jpg"><img src="images/team1.jpg" alt="Сергей Панов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team1.jpg</span></div>
+          <div class="team-info">
+            <h3>Сергей Панов</h3>
+            <div class="team-pos">Старший продавец</div>
+            <div class="team-exp">Опыт: 12 лет</div>
+            <p>Знает всё об инструменте и крепеже. Соберёт комплект под любую задачу.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="ph team-photo" data-file="team2.jpg"><img src="images/team2.jpg" alt="Ирина Мельникова" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team2.jpg</span></div>
+          <div class="team-info">
+            <h3>Ирина Мельникова</h3>
+            <div class="team-pos">Продавец-консультант</div>
+            <div class="team-exp">Опыт: 7 лет</div>
+            <p>Поможет подобрать краски, лаки и сопутствующие товары. Внимательна к деталям.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="ph team-photo" data-file="team3.jpg"><img src="images/team3.jpg" alt="Виктор Гусев" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name">team3.jpg</span></div>
+          <div class="team-info">
+            <h3>Виктор Гусев</h3>
+            <div class="team-pos">Продавец, электрика</div>
+            <div class="team-exp">Опыт: 9 лет</div>
+            <p>Подскажет по кабелю, розеткам и освещению. Рассчитает материалы по метражу.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="sheet">
+      <h2 class="section-title">Вопросы и ответы</h2>
+      <p class="section-sub">Собрали то, о нас спрашивают чаще всего</p>
+      <div class="faq-item">
+        <button class="faq-q">Какой у вас режим работы?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Пн–Пт 09:00–20:00, суббота 10:00–14:00, воскресенье — выходной.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Где вы находитесь?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Москва, ул. Трофимова, 16а. Точное расположение смотрите на карте в блоке контактов.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Есть ли доставка?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да, доставляем покупки по Москве и области. Стоимость и сроки уточните по телефону +7 (903) 712-36-53.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Можно ли оплатить картой?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Да, принимаем наличные и банковские карты.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Поможете подобрать материалы?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Конечно. Опытные продавцы проконсультируют, подскажут аналоги и рассчитают нужное количество.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Как сделать заказ или задать вопрос?<span class="faq-ico">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Позвоните по телефону +7 (903) 712-36-53, оставьте заявку через форму на сайте или напишите нам в группу ВКонтакте.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="section" id="contacts">
+  <div class="container">
+    <div class="sheet">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-sub">Приходите в магазин или оставьте заявку — мы перезвоним</p>
+      <div class="contact-grid">
+        <div>
+          <ul class="c-list">
+            <li><div class="c-ico">📍</div><div><strong>Адрес</strong><span>Москва, ул. Трофимова, 16а</span></div></li>
+            <li><div class="c-ico">📞</div><div><strong>Телефон</strong><a href="tel:+79037123653">+7 (903) 712-36-53</a><br><a href="tel:+79154275588">+7 (915) 427-55-88</a></div></li>
+            <li><div class="c-ico">🕘</div><div><strong>Режим работы</strong><span>Пн–Пт 09:00–20:00 · Сб 10:00–14:00 · Вс — выходной</span></div></li>
+            <li><div class="c-ico">✉️</div><div><strong>E-mail</strong><a href="mailto:info@vse-dlya-remonta.ru">info@vse-dlya-remonta.ru</a></div></li>
+            <li><div class="c-ico">💬</div><div><strong>Мы ВКонтакте</strong><a href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener">vk.ru/remontnatrofimova</a></div></li>
+          </ul>
+          <div class="map-wrap">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.663245%2C55.705517&z=16&pt=37.663245,55.705517,pm2rdm" title="Магазин «Всё для ремонта» на карте" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+        <form class="form-box" action="https://formsubmit.co/info@vse-dlya-remonta.ru" method="POST">
+          <h3>Оставить заявку</h3>
+          <p class="f-sub">Заполните форму — мы перезвоним и ответим на вопросы</p>
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Заявка с сайта «Всё для ремонта»">
+          <input type="hidden" name="_template" value="table">
+          <div class="f-group">
+            <label for="f-name">Ваше имя *</label>
+            <input type="text" id="f-name" name="name" required placeholder="Как к вам обращаться">
+          </div>
+          <div class="f-group">
+            <label for="f-phone">Телефон *</label>
+            <input type="tel" id="f-phone" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+          <div class="f-group">
+            <label for="f-msg">Сообщение</label>
+            <textarea id="f-msg" name="message" placeholder="Что вас интересует?"></textarea>
+          </div>
+          <label class="agree-row">
+            <input type="checkbox" id="agree">
+            <span>Я согласен на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a> в соответствии с политикой конфиденциальности</span>
+          </label>
+          <button type="submit" class="btn f-send" id="sendBtn" disabled>Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2026 «Всё для ремонта» · Магазин хозяйственных товаров</div>
+    <div>
+      <a href="privacy.html">📄 Политика конфиденциальности</a>
+      <span class="sep"> · </span>
+      <a href="cookie-policy.html">🍪 Политика cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ПЛАВАЮЩИЕ КНОПКИ -->
+<div class="fab-stack">
+  <a class="fab fab-up" id="fabUp" href="#top" aria-label="Наверх">↑</a>
+  <a class="fab fab-vk" href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener" aria-label="Группа ВКонтакте">VK</a>
+  <a class="fab fab-phone" href="tel:+79037123653" aria-label="Позвонить">📞</a>
+</div>
+
+<!-- COOKIE-БАННЕР -->
+<div class="cookie-bar" id="cookieBar">
+  <span>🍪 Мы используем файлы cookie для работы сайта. Подробнее — в <a href="cookie-policy.html">политике cookies</a>.</span>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-accept" onclick="cookieChoice('yes')">Принять</button>
+    <button class="cookie-btn cookie-decline" onclick="cookieChoice('no')">Отклонить</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- Яндекс.Метрика (замените XXXXXXXX на номер счётчика) -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<script>
+// ===== БУРГЕР =====
+const header = document.getElementById('header');
+document.getElementById('burger').addEventListener('click', () => header.classList.toggle('menu-open'));
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => header.classList.remove('menu-open')));
+
+// ===== АККОРДЕОН FAQ =====
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const a = item.querySelector('.faq-a');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+// ===== ЧЕКБОКС СОГЛАСИЯ =====
+const agree = document.getElementById('agree');
+const sendBtn = document.getElementById('sendBtn');
+agree.addEventListener('change', () => { sendBtn.disabled = !agree.checked; });
+
+// ===== МАСКА ТЕЛЕФОНА =====
+function maskPhone(inp) {
+  inp.addEventListener('input', e => {
+    let d = e.target.value.replace(/\D/g, '');
+    if (d.startsWith('8')) d = '7' + d.slice(1);
+    if (d.startsWith('7')) d = d.slice(1);
+    d = d.slice(0, 10);
+    let r = '';
+    if (d.length > 0) r = '+7 (' + d.slice(0, 3);
+    if (d.length >= 4) r += ') ' + d.slice(3, 6);
+    if (d.length >= 7) r += '-' + d.slice(6, 8);
+    if (d.length >= 9) r += '-' + d.slice(8, 10);
+    e.target.value = r;
+  });
+}
+maskPhone(document.getElementById('f-phone'));
+
+// ===== ЗАГЛУШКИ ФОТО: КОПИРОВАНИЕ ИМЕНИ =====
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+document.querySelectorAll('.ph').forEach(ph => {
+  ph.addEventListener('click', () => {
+    const f = ph.dataset.file;
+    navigator.clipboard.writeText(f).then(() => toast('📋 Скопировано: ' + f));
+  });
+});
+
+// ===== COOKIE-БАННЕР =====
+function cookieChoice(v) {
+  localStorage.setItem('cookieConsent', v);
+  document.getElementById('cookieBar').classList.remove('show');
+}
+if (!localStorage.getItem('cookieConsent')) {
+  setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1200);
+}
+
+// ===== КНОПКА НАВЕРХ =====
+window.addEventListener('scroll', () => {
+  document.getElementById('fabUp').classList.toggle('show', window.scrollY > 400);
+});
+</script>
+
+</body>
+</html>
