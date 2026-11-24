@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
 <meta charset="UTF-8">
-<meta name="cms-deploy-id" content="dmwuld5jsp5g4d6">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="cms-deploy-id" content="dmwtozzcw1p2c2p">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#241609">
 <title>Всё для ремонта — магазин хозяйственных товаров на Трофимова, 16а</title>
-<meta name="description" content="Магазин хозяйственных товаров «Всё для ремонта» в Москве: инструменты, крепёж, краски и всё для ремонта в одном месте. ул. Трофимова, 16а. Доставка.">
-<link rel="icon" type="image/x-icon" href="favicon.png">
+<meta name="description" content="Магазин хозяйственных товаров «Всё для ремонта» в Москве: инструменты, крепёж, краски и всё для ремонта в одном месте. Адрес: ул. Трофимова, 16а. Доставка.">
+<link rel="canonical" href="https://vse-dlya-remonta.ru/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Всё для ремонта">
+<meta property="og:title" content="Всё для ремонта — магазин хозяйственных товаров на Трофимова, 16а">
+<meta property="og:description" content="Инструменты, крепёж, краски и всё для ремонта в одном месте. Москва, ул. Трофимова, 16а. Доставка.">
+<meta property="og:url" content="https://vse-dlya-remonta.ru/">
+<meta property="og:image" content="https://vse-dlya-remonta.ru/images/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
 <style>
 :root{
@@ -24,29 +36,42 @@
   --shadow:0 12px 32px rgba(20,12,4,.38);
   --shadow-sm:0 6px 18px rgba(20,12,4,.28);
   --radius:16px;
+  --cookie-h:0px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Roboto',Arial,sans-serif;
+  font-family:'Roboto',Arial,Helvetica,sans-serif;
   color:var(--text-dark);
   background:var(--brown-900);
   line-height:1.6;
   font-size:16px;
 }
-/* Размытая подложка хозяйственного магазина на весь сайт */
+/* Размытая подложка на весь сайт. Вылет 40px вместо transform:
+   blur(10px) требует ~30px запаса по краям, scale(1.08) на мобильных давал лишь ~14px */
 body::before{
   content:"";
   position:fixed;
-  inset:0;
+  inset:-40px;
   z-index:-1;
   background:var(--brown-900) url('images/bg.jpg') center/cover no-repeat;
   filter:blur(10px) brightness(.45) saturate(.9);
-  transform:scale(1.08);
 }
-h1,h2,h3,h4{font-family:'Oswald',Arial,sans-serif;letter-spacing:.3px}
+h1,h2,h3,h4{font-family:'Oswald',Arial,Helvetica,sans-serif;letter-spacing:.3px}
 .container{max-width:1180px;margin:0 auto;padding:0 20px}
 section{scroll-margin-top:92px}
+img{max-width:100%}
+
+/* Фокус и доступность */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid var(--tan);outline-offset:2px;
+}
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:300;
+  background:var(--tan);color:var(--brown-900);padding:10px 18px;
+  border-radius:0 0 10px 0;font-weight:700;text-decoration:none;
+}
+.skip-link:focus{left:0}
 
 /* ===== ШАПКА ===== */
 .header{
@@ -57,8 +82,8 @@ section{scroll-margin-top:92px}
   box-shadow:0 4px 18px rgba(0,0,0,.45);
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream);font-family:'Oswald';font-weight:600;font-size:21px;text-transform:uppercase}
-.logo-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:var(--shadow-sm)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream);font-family:'Oswald',Arial,Helvetica,sans-serif;font-weight:600;font-size:21px;text-transform:uppercase}
+.logo img{width:42px;height:42px;border-radius:10px;object-fit:contain;box-shadow:var(--shadow-sm);flex-shrink:0}
 .nav{display:flex;gap:26px}
 .nav a{color:var(--tan-light);text-decoration:none;font-size:15px;font-weight:500;transition:color .2s}
 .nav a:hover{color:var(--tan)}
@@ -92,7 +117,6 @@ section{scroll-margin-top:92px}
   display:block;
   z-index:0;
 }
-/* затемнение: слева сильнее, справа фото видно хорошо */
 .hero-card::after{
   content:"";
   position:absolute;
@@ -127,7 +151,7 @@ section{scroll-margin-top:92px}
   flex-wrap:wrap;
 }
 .badge-delivery{
-  font-family:'Roboto';font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   background:var(--tan);color:var(--brown-900);padding:7px 16px;border-radius:24px;box-shadow:var(--shadow-sm);
 }
 .hero-text p{color:var(--tan-light);font-size:clamp(15px,1.6vw,18px);max-width:460px}
@@ -137,23 +161,28 @@ section{scroll-margin-top:92px}
   color:var(--brown-900);text-decoration:none;font-weight:700;font-size:16px;
   padding:15px 34px;border-radius:12px;border:none;cursor:pointer;
   box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;
-  font-family:'Roboto';min-height:48px;
+  font-family:'Roboto',Arial,Helvetica,sans-serif;min-height:48px;
 }
 .btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
-/* заглушка имени файла hero.jpg */
 .hero-ph{
   position:absolute;top:50%;right:24px;transform:translateY(-50%);z-index:3;
   background:rgba(36,22,9,.75);color:var(--tan-light);border:1px dashed var(--tan);
   padding:10px 20px;border-radius:10px;font-size:14px;font-family:monospace;
-  pointer-events:none;
+  pointer-events:none;display:none;
 }
 
-/* ===== ЗАГЛУШКИ ФОТО ===== */
-.ph{position:relative;background:#5a4a38;overflow:hidden;cursor:pointer}
+/* ===== ФОТО И ЗАГЛУШКИ (заглушки видны только в режиме редактора ?edit=1) ===== */
+.ph{position:relative;background:#5a4a38;overflow:hidden}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
-.ph .ph-name{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;background:rgba(36,22,9,.75);color:var(--tan-light);border:1px dashed var(--tan);padding:8px 16px;border-radius:10px;font-size:13px;font-family:monospace}
-.ph.loaded .ph-name{display:none}
+.ph .ph-name{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;background:rgba(36,22,9,.75);color:var(--tan-light);border:1px dashed var(--tan);padding:8px 16px;border-radius:10px;font-size:13px;font-family:monospace;display:none}
+.ph.is-broken{display:none}
+.editor .ph{cursor:pointer}
+.editor .ph:not(.loaded) .ph-name{display:block}
+.editor .ph.is-broken{display:block}
+.editor .hero-card:not(.loaded) .hero-ph{display:block}
+.editor-note{display:none;max-width:640px;margin:0 auto 18px;text-align:center;font-size:13px;color:var(--brown-700);border:1px dashed var(--tan);border-radius:10px;padding:8px 14px;background:rgba(255,253,248,.6)}
+.editor .editor-note{display:block}
 
 /* ===== СЕКЦИИ-ЛИСТЫ ===== */
 .section{padding:16px 0}
@@ -195,7 +224,7 @@ section{scroll-margin-top:92px}
 .team-info{padding:20px 20px 24px}
 .team-info h3{font-size:19px;color:var(--brown-800);text-transform:uppercase}
 .team-pos{color:var(--brown-600);font-weight:700;font-size:14px;margin:4px 0 2px}
-.team-exp{color:var(--tan);font-weight:700;font-size:13px;margin-bottom:8px}
+.team-exp{color:var(--brown-600);font-weight:700;font-size:13px;margin-bottom:8px}
 .team-info p{font-size:14px;color:var(--text-soft)}
 
 /* ===== FAQ ===== */
@@ -203,7 +232,8 @@ section{scroll-margin-top:92px}
 .faq-q{
   width:100%;text-align:left;background:transparent;border:none;cursor:pointer;
   padding:18px 22px;font-size:16px;font-weight:700;color:var(--brown-800);
-  display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:'Roboto';
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:'Roboto',Arial,Helvetica,sans-serif;
 }
 .faq-q:hover{color:var(--brown-600)}
 .faq-ico{width:30px;height:30px;flex-shrink:0;border-radius:50%;background:var(--tan);color:var(--brown-900);display:flex;align-items:center;justify-content:center;font-weight:700;transition:transform .3s}
@@ -213,17 +243,14 @@ section{scroll-margin-top:92px}
 
 /* ===== КОНТАКТЫ ===== */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch;margin-bottom:34px}
-
-/* Карточки контактов */
 .c-cards{display:flex;flex-direction:column;justify-content:space-between;height:100%;gap:14px}
 .c-card{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
 .c-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .c-ico{width:42px;height:42px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--tan),var(--brown-600));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--shadow-sm)}
 .c-card-body strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-soft);margin-bottom:3px;font-weight:700}
 .c-card-body a,.c-card-body span{color:var(--brown-800);text-decoration:none;font-weight:600;font-size:15px;line-height:1.4}
+.c-card-body a{display:block}
 .c-card-body a:hover{color:var(--brown-600)}
-.c-card-body a + a{display:inline-block;margin-top:2px}
-
 .map-wrap{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--tan-light);height:300px;position:relative}
 .map-wrap iframe{width:100%;height:100%;border:0;display:block}
 .form-box{background:var(--white);border:1px solid var(--tan-light);border-radius:14px;padding:32px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
@@ -233,10 +260,11 @@ section{scroll-margin-top:92px}
 .f-group label{display:block;font-size:13px;font-weight:700;color:var(--brown-700);margin-bottom:5px}
 .f-group input,.f-group textarea{
   width:100%;padding:13px 14px;border:2px solid var(--tan-light);border-radius:10px;
-  font-size:15px;font-family:'Roboto';background:var(--cream);color:var(--text-dark);min-height:46px;
+  font-size:15px;font-family:'Roboto',Arial,Helvetica,sans-serif;background:var(--cream);color:var(--text-dark);min-height:46px;
 }
 .f-group textarea{resize:vertical;min-height:96px}
-.f-group input:focus,.f-group textarea:focus{outline:none;border-color:var(--brown-500)}
+.f-group input:focus,.f-group textarea:focus{border-color:var(--brown-500)}
+.honey{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
 .agree-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-soft);margin:6px 0 18px}
 .agree-row input{width:20px;height:20px;flex-shrink:0;margin-top:2px;accent-color:var(--brown-600)}
 .agree-row a{color:var(--brown-600);font-weight:700}
@@ -252,20 +280,16 @@ section{scroll-margin-top:92px}
   border-top:1px solid rgba(201,168,124,.15);
 }
 .footer-inner{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px 24px;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--tan-light);
-  font-size:14px;
-  line-height:1.5;
+  display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;
+  color:var(--tan-light);font-size:14px;line-height:1.5;
 }
 .footer-inner > div:first-child{white-space:nowrap}
 .footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0}
 .footer a{color:var(--tan);text-decoration:none}
 .footer a:hover{color:var(--tan-light)}
 .footer .sep{opacity:.5;margin:0 4px}
+.linklike{background:none;border:none;padding:0;font:inherit;color:var(--tan);cursor:pointer}
+.linklike:hover{color:var(--tan-light)}
 @media(max-width:640px){
   .footer-inner{flex-direction:column;text-align:center;gap:10px}
   .footer-inner > div:first-child{white-space:normal}
@@ -273,16 +297,16 @@ section{scroll-margin-top:92px}
 }
 
 /* ===== ПЛАВАЮЩИЕ КНОПКИ ===== */
-.fab-stack{position:fixed;right:18px;bottom:18px;z-index:90;display:flex;flex-direction:column;gap:10px;align-items:center}
+.fab-stack{position:fixed;right:18px;bottom:calc(18px + var(--cookie-h,0px));z-index:90;display:flex;flex-direction:column;gap:10px;align-items:center;transition:bottom .4s}
 .fab{
   width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   text-decoration:none;font-size:22px;box-shadow:var(--shadow);transition:transform .2s;
 }
 .fab:hover{transform:scale(1.1)}
 .fab-phone{background:linear-gradient(135deg,var(--tan),var(--brown-500));color:var(--brown-900)}
-.fab-vk{background:#0077ff;color:#fff;font-weight:700;font-size:16px;font-family:'Oswald'}
-.fab-up{background:var(--brown-700);color:var(--cream);opacity:0;pointer-events:none;transition:opacity .3s,transform .2s}
-.fab-up.show{opacity:1;pointer-events:auto}
+.fab-vk{background:#0077ff;color:#fff;font-weight:700;font-size:16px;font-family:'Oswald',Arial,Helvetica,sans-serif}
+.fab-up{background:var(--brown-700);color:var(--cream);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,transform .2s,visibility .3s}
+.fab-up.show{opacity:1;visibility:visible;pointer-events:auto}
 
 /* ===== COOKIE-БАННЕР ===== */
 .cookie-bar{
@@ -290,13 +314,12 @@ section{scroll-margin-top:92px}
   background:rgba(36,22,9,.97);color:var(--tan-light);
   padding:16px 20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;
   box-shadow:0 -8px 24px rgba(0,0,0,.5);
-  transform:translateY(110%);transition:transform .4s;
-  font-size:14px;
+  transform:translateY(110%);transition:transform .4s;font-size:14px;
 }
 .cookie-bar.show{transform:translateY(0)}
 .cookie-bar a{color:var(--tan)}
 .cookie-btns{display:flex;gap:10px}
-.cookie-btn{border:none;cursor:pointer;border-radius:10px;padding:10px 22px;font-weight:700;font-size:14px;font-family:'Roboto'}
+.cookie-btn{border:none;cursor:pointer;border-radius:10px;padding:10px 22px;font-weight:700;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif}
 .cookie-accept{background:var(--tan);color:var(--brown-900)}
 .cookie-decline{background:transparent;color:var(--tan-light);border:1px solid var(--tan)}
 
@@ -328,15 +351,40 @@ section{scroll-margin-top:92px}
   .hero-card{min-height:440px}
   .fab{width:48px;height:48px;font-size:19px}
 }
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
 </style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HardwareStore",
+  "name":"Всё для ремонта",
+  "description":"Магазин хозяйственных товаров: инструменты, крепёж, краски, электрика. Доставка.",
+  "address":{"@type":"PostalAddress","streetAddress":"улица Трофимова, 16а","addressLocality":"Москва","postalCode":"115432","addressCountry":"RU"},
+  "geo":{"@type":"GeoCoordinates","latitude":55.70266,"longitude":37.67086},
+  "telephone":"+79037123653",
+  "email":"info@vse-dlya-remonta.ru",
+  "url":"https://vse-dlya-remonta.ru/",
+  "image":"https://vse-dlya-remonta.ru/images/hero.jpg",
+  "sameAs":"https://vk.ru/remontnatrofimova",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"14:00"}
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Перейти к содержимому</a>
 
 <!-- ШАПКА -->
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="#top" class="logo"><img src="images/005.png" alt="Логотип" style="width:42px;height:42px;border-radius:10px;object-fit:contain;background:transparent;box-shadow:var(--shadow-sm)"><span data-edit="auto_1">Всё для ремонта</span></a>
-    <nav class="nav" id="nav">
+    <a href="#top" class="logo"><img src="images/005.png" alt="" width="42" height="42"><span data-edit="auto_1">Всё для ремонта</span></a>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
       <a href="#advantages"><span data-edit="auto_2">Преимущества</span></a>
       <a href="#gallery"><span data-edit="auto_3">Галерея</span></a>
       <a href="#team"><span data-edit="auto_4">Команда</span></a>
@@ -344,15 +392,17 @@ section{scroll-margin-top:92px}
       <a href="#contacts"><span data-edit="auto_6">Контакты</span></a>
     </nav>
     <a class="header-phone" href="tel:+79037123653"><span data-edit="auto_7">+7 (903) 712-36-53</span></a>
-    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<main id="main">
 
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
     <div class="hero-card">
-      <img class="hero-bg" src="images/hero.jpg" alt="Магазин «Всё для ремонта»" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/hero.jpg" data-img-id="img_1">
+      <img class="hero-bg" src="images/hero.jpg" alt="Магазин «Всё для ремонта»" width="1180" height="520" fetchpriority="high" data-img="images/hero.jpg" data-img-id="img_1">
       <div class="hero-text">
         <h1><span data-edit="auto_8">Всё для ремонта </span><span class="badge-delivery"><span data-edit="auto_9">доставка</span></span></h1>
         <p><span data-edit="auto_10">Магазин хозяйственных товаров. Инструменты, крепёж, краски и всё для ремонта — в одном месте.</span></p>
@@ -371,22 +421,22 @@ section{scroll-margin-top:92px}
       <p class="section-sub"><span data-edit="auto_14">Мы работаем для тех, кто делает ремонт сам и для тех, кто строит профессионально</span></p>
       <div class="adv-grid">
         <div class="adv-card">
-          <div class="adv-icon">🧰</div>
+          <div class="adv-icon" aria-hidden="true">🧰</div>
           <h3><span data-edit="auto_15">Всё для ремонта в одном месте</span></h3>
           <p><span data-edit="auto_16">От крепежа до электроинструмента — не нужно ездить по разным магазинам.</span></p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon">🤝</div>
+          <div class="adv-icon" aria-hidden="true">🤝</div>
           <h3><span data-edit="auto_17">Консультация опытных продавцов</span></h3>
           <p><span data-edit="auto_18">Поможем подобрать именно то, что подходит для вашей задачи.</span></p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon">📍</div>
+          <div class="adv-icon" aria-hidden="true">📍</div>
           <h3><span data-edit="auto_19">Удобное расположение</span></h3>
           <p><span data-edit="auto_20">Москва, ул. Трофимова, 16а — легко добраться на машине и пешком.</span></p>
         </div>
         <div class="adv-card">
-          <div class="adv-icon">🚚</div>
+          <div class="adv-icon" aria-hidden="true">🚚</div>
           <h3><span data-edit="auto_21">Доставка</span></h3>
           <p><span data-edit="auto_22">Привезём покупки по адресу — вовремя и аккуратно.</span></p>
         </div>
@@ -400,14 +450,15 @@ section{scroll-margin-top:92px}
   <div class="container">
     <div class="sheet">
       <h2 class="section-title"><span data-edit="auto_23">Наш магазин</span></h2>
-      <p class="section-sub"><span data-edit="auto_24">Загляните к нам — клик по фото копирует имя файла для замены</span></p>
+      <p class="section-sub"><span data-edit="auto_24">Торговый зал, отделы и ассортимент — загляните к нам заранее</span></p>
+      <p class="editor-note">Режим редактора: клик по фото (или Enter) копирует имя файла для замены. Выключить — адрес с параметром ?edit=0</p>
       <div class="gallery-grid">
-        <div class="ph g-item" data-file="gallery1.jpg"><img src="images/gallery1.jpg" alt="Вход в магазин" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery1.jpg" data-img-id="img_2"><span class="ph-name"><span data-edit="auto_25">gallery1.jpg</span></span><div class="g-cap"><span data-edit="auto_26">Вход в магазин</span></div></div>
-        <div class="ph g-item" data-file="gallery2.jpg"><img src="images/gallery2.jpg" alt="Отдел инструментов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery2.jpg" data-img-id="img_3"><span class="ph-name"><span data-edit="auto_27">gallery2.jpg</span></span><div class="g-cap"><span data-edit="auto_28">Отдел инструментов</span></div></div>
-        <div class="ph g-item" data-file="gallery3.jpg"><img src="images/gallery3.jpg" alt="Краски и лаки" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery3.jpg" data-img-id="img_4"><span class="ph-name"><span data-edit="auto_29">gallery3.jpg</span></span><div class="g-cap"><span data-edit="auto_30">Краски и лаки</span></div></div>
-        <div class="ph g-item" data-file="gallery4.jpg"><img src="images/gallery4.jpg" alt="Крепёж и метизы" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery4.jpg" data-img-id="img_5"><span class="ph-name"><span data-edit="auto_31">gallery4.jpg</span></span><div class="g-cap"><span data-edit="auto_32">Крепёж и метизы</span></div></div>
-        <div class="ph g-item" data-file="gallery5.jpg"><img src="images/gallery5.jpg" alt="Отдел электрики" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery5.jpg" data-img-id="img_6"><span class="ph-name"><span data-edit="auto_33">gallery5.jpg</span></span><div class="g-cap"><span data-edit="auto_34">Отдел электрики</span></div></div>
-        <div class="ph g-item" data-file="gallery6.jpg"><img src="images/gallery6.jpg" alt="Прикассовая зона" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()" data-img="images/gallery6.jpg" data-img-id="img_7"><span class="ph-name"><span data-edit="auto_35">gallery6.jpg</span></span><div class="g-cap"><span data-edit="auto_36">Прикассовая зона</span></div></div>
+        <div class="ph g-item" data-file="gallery1.jpg"><img src="images/gallery1.jpg" alt="Вход в магазин" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery1.jpg" data-img-id="img_2"><span class="ph-name"><span data-edit="auto_25">gallery1.jpg</span></span><div class="g-cap"><span data-edit="auto_26">Вход в магазин</span></div></div>
+        <div class="ph g-item" data-file="gallery2.jpg"><img src="images/gallery2.jpg" alt="Отдел инструментов" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery2.jpg" data-img-id="img_3"><span class="ph-name"><span data-edit="auto_27">gallery2.jpg</span></span><div class="g-cap"><span data-edit="auto_28">Отдел инструментов</span></div></div>
+        <div class="ph g-item" data-file="gallery3.jpg"><img src="images/gallery3.jpg" alt="Краски и лаки" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery3.jpg" data-img-id="img_4"><span class="ph-name"><span data-edit="auto_29">gallery3.jpg</span></span><div class="g-cap"><span data-edit="auto_30">Краски и лаки</span></div></div>
+        <div class="ph g-item" data-file="gallery4.jpg"><img src="images/gallery4.jpg" alt="Крепёж и метизы" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery4.jpg" data-img-id="img_5"><span class="ph-name"><span data-edit="auto_31">gallery4.jpg</span></span><div class="g-cap"><span data-edit="auto_32">Крепёж и метизы</span></div></div>
+        <div class="ph g-item" data-file="gallery5.jpg"><img src="images/gallery5.jpg" alt="Отдел электрики" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery5.jpg" data-img-id="img_6"><span class="ph-name"><span data-edit="auto_33">gallery5.jpg</span></span><div class="g-cap"><span data-edit="auto_34">Отдел электрики</span></div></div>
+        <div class="ph g-item" data-file="gallery6.jpg"><img src="images/gallery6.jpg" alt="Прикассовая зона" width="400" height="300" loading="lazy" decoding="async" data-img="images/gallery6.jpg" data-img-id="img_7"><span class="ph-name"><span data-edit="auto_35">gallery6.jpg</span></span><div class="g-cap"><span data-edit="auto_36">Прикассовая зона</span></div></div>
       </div>
     </div>
   </div>
@@ -421,7 +472,7 @@ section{scroll-margin-top:92px}
       <p class="section-sub"><span data-edit="auto_38">Люди, которые знают товар и помогут с выбором</span></p>
       <div class="team-grid">
         <div class="team-card">
-          <div class="ph team-photo" data-file="team1.jpg" data-img="images/team1.jpg" data-img-id="img_8"><img src="images/team1.jpg" alt="Сергей Панов" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_39">team1.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team1.jpg"><img src="images/team1.jpg" alt="Сергей Панов" width="400" height="400" loading="lazy" decoding="async" data-img="images/team1.jpg" data-img-id="img_8"><span class="ph-name"><span data-edit="auto_39">team1.jpg</span></span></div>
           <div class="team-info">
             <h3><span data-edit="auto_40">Сергей Панов</span></h3>
             <div class="team-pos"><span data-edit="auto_41">Старший продавец</span></div>
@@ -430,7 +481,7 @@ section{scroll-margin-top:92px}
           </div>
         </div>
         <div class="team-card">
-          <div class="ph team-photo" data-file="team2.jpg" data-img="images/team2.jpg" data-img-id="img_9"><img src="images/team2.jpg" alt="Ирина Мельникова" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_44">team2.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team2.jpg"><img src="images/team2.jpg" alt="Ирина Мельникова" width="400" height="400" loading="lazy" decoding="async" data-img="images/team2.jpg" data-img-id="img_9"><span class="ph-name"><span data-edit="auto_44">team2.jpg</span></span></div>
           <div class="team-info">
             <h3><span data-edit="auto_45">Ирина Мельникова</span></h3>
             <div class="team-pos"><span data-edit="auto_46">Продавец-консультант</span></div>
@@ -439,7 +490,7 @@ section{scroll-margin-top:92px}
           </div>
         </div>
         <div class="team-card">
-          <div class="ph team-photo" data-file="team3.jpg" data-img="images/team3.jpg" data-img-id="img_10"><img src="images/team3.jpg" alt="Виктор Гусев" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-name"><span data-edit="auto_49">team3.jpg</span></span></div>
+          <div class="ph team-photo" data-file="team3.jpg"><img src="images/team3.jpg" alt="Виктор Гусев" width="400" height="400" loading="lazy" decoding="async" data-img="images/team3.jpg" data-img-id="img_10"><span class="ph-name"><span data-edit="auto_49">team3.jpg</span></span></div>
           <div class="team-info">
             <h3><span data-edit="auto_50">Виктор Гусев</span></h3>
             <div class="team-pos"><span data-edit="auto_51">Продавец, электрика</span></div>
@@ -459,28 +510,28 @@ section{scroll-margin-top:92px}
       <h2 class="section-title"><span data-edit="auto_54">Вопросы и ответы</span></h2>
       <p class="section-sub"><span data-edit="auto_55">Собрали то, о нас спрашивают чаще всего</span></p>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_56">Какой у вас режим работы?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_57">Пн–Пт 09:00–20:00, суббота 10:00–14:00, воскресенье — выходной.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-1"><span data-edit="auto_56">Какой у вас режим работы?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-1"><div class="faq-a-inner"><span data-edit="auto_57">Пн–Пт 09:00–20:00, суббота 10:00–14:00, воскресенье — выходной.</span></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_58">Где вы находитесь?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_59">Москва, ул. Трофимова, 16а. Точное расположение смотрите на карте в блоке контактов.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-2"><span data-edit="auto_58">Где вы находитесь?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-2"><div class="faq-a-inner"><span data-edit="auto_59">Москва, ул. Трофимова, 16а. Точное расположение смотрите на карте в блоке контактов.</span></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_60">Есть ли доставка?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_61">Да, доставляем покупки по Москве и области. Стоимость и сроки уточните по телефону +7 (903) 712-36-53.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-3"><span data-edit="auto_60">Есть ли доставка?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-3"><div class="faq-a-inner"><span data-edit="auto_61">Да, доставляем покупки по Москве и области. Стоимость и сроки уточните по телефону +7 (903) 712-36-53.</span></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_62">Можно ли оплатить картой?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_63">Да, принимаем наличные и банковские карты.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-4"><span data-edit="auto_62">Можно ли оплатить картой?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-4"><div class="faq-a-inner"><span data-edit="auto_63">Да, принимаем наличные и банковские карты.</span></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_64">Поможете подобрать материалы?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_65">Конечно. Опытные продавцы проконсультируют, подскажут аналоги и рассчитают нужное количество.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-5"><span data-edit="auto_64">Поможете подобрать материалы?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-5"><div class="faq-a-inner"><span data-edit="auto_65">Конечно. Опытные продавцы проконсультируют, подскажут аналоги и рассчитают нужное количество.</span></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span data-edit="auto_66">Как сделать заказ или задать вопрос?</span><span class="faq-ico">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner"><span data-edit="auto_67">Позвоните по телефону +7 (903) 712-36-53, оставьте заявку через форму на сайте или напишите нам в группу ВКонтакте.</span></div></div>
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a-6"><span data-edit="auto_66">Как сделать заказ или задать вопрос?</span><span class="faq-ico" aria-hidden="true">+</span></button>
+        <div class="faq-a" id="faq-a-6"><div class="faq-a-inner"><span data-edit="auto_67">Позвоните по телефону +7 (903) 712-36-53, оставьте заявку через форму на сайте или напишите нам в группу ВКонтакте.</span></div></div>
       </div>
     </div>
   </div>
@@ -493,44 +544,51 @@ section{scroll-margin-top:92px}
       <h2 class="section-title"><span data-edit="auto_68">Контакты</span></h2>
       <p class="section-sub"><span data-edit="auto_69">Приходите в магазин или оставьте заявку — мы перезвоним</span></p>
       <div class="contact-grid">
-        <form class="form-box" action="https://formsubmit.co/info@vse-dlya-remonta.ru" method="POST">
+        <!-- FormSubmit: первую отправку нужно подтвердить по письму на info@vse-dlya-remonta.ru.
+             Адрес в action можно заменить на хешированный endpoint из личного кабинета FormSubmit,
+             чтобы не публиковать e-mail открытым текстом. -->
+        <form class="form-box" id="leadForm" action="https://formsubmit.co/info@vse-dlya-remonta.ru" method="POST" accept-charset="UTF-8">
           <h3><span data-edit="auto_70">Оставить заявку</span></h3>
           <p class="f-sub"><span data-edit="auto_71">Заполните форму — мы перезвоним и ответим на вопросы</span></p>
-          <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="Заявка с сайта «Всё для ремонта»">
           <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://vse-dlya-remonta.ru/?sent=1">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="f-group">
             <label for="f-name"><span data-edit="auto_72">Ваше имя *</span></label>
-            <input type="text" id="f-name" name="name" required="" placeholder="Как к вам обращаться">
+            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Как к вам обращаться">
           </div>
           <div class="f-group">
             <label for="f-phone"><span data-edit="auto_73">Телефон *</span></label>
-            <input type="tel" id="f-phone" name="phone" required="" placeholder="+7 (___) ___-__-__">
+            <input type="tel" id="f-phone" name="phone" required autocomplete="tel" inputmode="tel" maxlength="18" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Формат: +7 (999) 123-45-67" placeholder="+7 (___) ___-__-__">
           </div>
           <div class="f-group">
             <label for="f-msg"><span data-edit="auto_74">Сообщение</span></label>
             <textarea id="f-msg" name="message" placeholder="Что вас интересует?"></textarea>
           </div>
           <label class="agree-row">
-            <input type="checkbox" id="agree">
+            <input type="checkbox" id="agree" name="agree" value="yes" required>
             <span><span data-edit="auto_75">Я согласен на </span><a href="privacy.html" target="_blank" rel="noopener"><span data-edit="auto_76">обработку персональных данных</span></a><span data-edit="auto_77"> в соответствии с политикой конфиденциальности</span></span>
           </label>
-          <button type="submit" class="btn f-send" id="sendBtn" disabled=""><span data-edit="auto_78">Отправить заявку</span></button>
+          <button type="submit" class="btn f-send" id="sendBtn"><span data-edit="auto_78">Отправить заявку</span></button>
         </form>
         <div class="c-cards">
-          <div class="c-card"><div class="c-ico">📍</div><div class="c-card-body"><strong><span data-edit="auto_79">Адрес</span></strong><span><span data-edit="auto_80">Москва, ул. Трофимова, 16а</span></span></div></div>
-          <div class="c-card"><div class="c-ico">📞</div><div class="c-card-body"><strong><span data-edit="auto_81">Телефон</span></strong><a href="tel:+79037123653"><span data-edit="auto_82">+7 (903) 712-36-53</span></a><br><a href="tel:+79154275588"><span data-edit="auto_83">+7 (915) 427-55-88</span></a></div></div>
-          <div class="c-card"><div class="c-ico">🕘</div><div class="c-card-body"><strong><span data-edit="auto_84">Режим работы</span></strong><span><span data-edit="auto_85">Пн–Пт 09:00–20:00</span><br><span data-edit="auto_86">Сб 10:00–14:00</span><br><span data-edit="auto_87">Вс — выходной</span></span></div></div>
-          <div class="c-card"><div class="c-ico">✉️</div><div class="c-card-body"><strong><span data-edit="auto_88">E-mail</span></strong><a href="mailto:info@vse-dlya-remonta.ru"><span data-edit="auto_89">info@vse-dlya-remonta.ru</span></a></div></div>
-          <div class="c-card"><div class="c-ico">💬</div><div class="c-card-body"><strong><span data-edit="auto_90">Мы ВКонтакте</span></strong><a href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener"><span data-edit="auto_91">vk.ru/remontnatrofimova</span></a></div></div>
+          <div class="c-card"><div class="c-ico" aria-hidden="true">📍</div><div class="c-card-body"><strong><span data-edit="auto_79">Адрес</span></strong><span><span data-edit="auto_80">Москва, ул. Трофимова, 16а</span></span></div></div>
+          <div class="c-card"><div class="c-ico" aria-hidden="true">📞</div><div class="c-card-body"><strong><span data-edit="auto_81">Телефон</span></strong><a href="tel:+79037123653"><span data-edit="auto_82">+7 (903) 712-36-53</span></a><a href="tel:+79154275588"><span data-edit="auto_83">+7 (915) 427-55-88</span></a></div></div>
+          <div class="c-card"><div class="c-ico" aria-hidden="true">🕘</div><div class="c-card-body"><strong><span data-edit="auto_84">Режим работы</span></strong><span><span data-edit="auto_85">Пн–Пт 09:00–20:00</span><br><span data-edit="auto_86">Сб 10:00–14:00</span><br><span data-edit="auto_87">Вс — выходной</span></span></div></div>
+          <div class="c-card"><div class="c-ico" aria-hidden="true">✉️</div><div class="c-card-body"><strong><span data-edit="auto_88">E-mail</span></strong><a href="mailto:info@vse-dlya-remonta.ru"><span data-edit="auto_89">info@vse-dlya-remonta.ru</span></a></div></div>
+          <div class="c-card"><div class="c-ico" aria-hidden="true">💬</div><div class="c-card-body"><strong><span data-edit="auto_90">Мы ВКонтакте</span></strong><a href="https://vk.ru/remontnatrofimova" target="_blank" rel="noopener"><span data-edit="auto_91">vk.ru/remontnatrofimova</span></a></div></div>
         </div>
       </div>
       <div class="map-wrap">
-        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.66586%2C55.69966%2C37.67586%2C55.70566&amp;layer=mapnik&amp;marker=55.70266%2C37.67086" title="Магазин «Всё для ремонта» на карте" loading="lazy" allowfullscreen=""></iframe>
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.66586%2C55.69966%2C37.67586%2C55.70566&amp;layer=mapnik&amp;marker=55.70266%2C37.67086" title="Магазин «Всё для ремонта» на карте" loading="lazy"></iframe>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ФУТЕР -->
 <footer class="footer">
@@ -540,6 +598,8 @@ section{scroll-margin-top:92px}
       <a href="privacy.html"><span data-edit="auto_93">📄 Политика конфиденциальности</span></a>
       <span class="sep"> · </span>
       <a href="cookie-policy.html"><span data-edit="auto_94">🍪 Политика cookies</span></a>
+      <span class="sep"> · </span>
+      <button type="button" class="linklike" id="cookieSettings">Настройки cookie</button>
     </div>
   </div>
 </footer>
@@ -552,114 +612,274 @@ section{scroll-margin-top:92px}
 </div>
 
 <!-- COOKIE-БАННЕР -->
-<div class="cookie-bar" id="cookieBar">
+<div class="cookie-bar" id="cookieBar" role="region" aria-label="Уведомление об использовании cookie">
   <span><span data-edit="auto_96">🍪 Мы используем файлы cookie для работы сайта. Подробнее — в </span><a href="cookie-policy.html"><span data-edit="auto_97">политике cookies</span></a>.</span>
   <div class="cookie-btns">
-    <button class="cookie-btn cookie-accept" onclick="cookieChoice('yes')"><span data-edit="auto_98">Принять</span></button>
-    <button class="cookie-btn cookie-decline" onclick="cookieChoice('no')"><span data-edit="auto_99">Отклонить</span></button>
+    <button type="button" class="cookie-btn cookie-accept" id="cookieAccept"><span data-edit="auto_98">Принять</span></button>
+    <button type="button" class="cookie-btn cookie-decline" id="cookieDecline"><span data-edit="auto_99">Отклонить</span></button>
   </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- Яндекс.Метрика (замените XXXXXXXX на номер счётчика) -->
-<script type="text/javascript">
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-m[i].l=1*new Date();
-for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ===== БУРГЕР =====
-const header = document.getElementById('header');
-document.getElementById('burger').addEventListener('click', () => header.classList.toggle('menu-open'));
-document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => header.classList.remove('menu-open')));
+(function () {
+  'use strict';
 
-// ===== АККОРДЕОН FAQ =====
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    const a = item.querySelector('.faq-a');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-a').style.maxHeight = null;
+  /* ==== НАСТРОЙКИ ==== */
+  var YM_ID = 0; // ← номер счётчика Яндекс.Метрики. 0 — аналитика выключена.
+
+  /* ==== БЕЗОПАСНОЕ ХРАНИЛИЩЕ ==== */
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  /* ==== РЕЖИМ РЕДАКТОРА: ?edit=1 включить, ?edit=0 выключить ==== */
+  var EDITOR = (function () {
+    var p = new URLSearchParams(location.search).get('edit');
+    if (p === '1') { store.set('siteEditor', '1'); }
+    if (p === '0') { store.set('siteEditor', '0'); }
+    return store.get('siteEditor') === '1';
+  })();
+  if (EDITOR) { document.documentElement.classList.add('editor'); }
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* ==== TOAST ==== */
+  var toastTimer;
+  function toast(msg) {
+    var t = $('#toast');
+    if (!t) { return; }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2600);
+  }
+
+  /* ==== БУРГЕР-МЕНЮ ==== */
+  var header = $('#header');
+  var burger = $('#burger');
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+  }
+  burger.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+  $$('.nav a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); } });
+  document.addEventListener('click', function (e) {
+    if (header.classList.contains('menu-open') && !header.contains(e.target)) { setMenu(false); }
+  });
+
+  /* ==== АККОРДЕОН FAQ ==== */
+  $$('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var panel = $('.faq-a', item);
+      var willOpen = !item.classList.contains('open');
+      $$('.faq-item.open').forEach(function (o) {
+        o.classList.remove('open');
+        $('.faq-a', o).style.maxHeight = '';
+        $('.faq-q', o).setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
-    if (!wasOpen) {
-      item.classList.add('open');
-      a.style.maxHeight = a.scrollHeight + 'px';
+  });
+
+  /* ==== ЗАГРУЗКА ФОТО (без инлайновых onload/onerror) ==== */
+  function watchImage(img, box) {
+    var ok = function () { box.classList.add('loaded'); };
+    var fail = function () { box.classList.add('is-broken'); };
+    if (img.complete) {
+      if (img.naturalWidth > 0) { ok(); } else { fail(); }
+    } else {
+      img.addEventListener('load', ok, { once: true });
+      img.addEventListener('error', fail, { once: true });
+    }
+  }
+  var heroImg = $('.hero-bg');
+  if (heroImg) { watchImage(heroImg, $('.hero-card')); }
+  $$('.ph').forEach(function (ph) {
+    var img = $('img', ph);
+    if (img) { watchImage(img, ph); }
+  });
+  var logoImg = $('.logo img');
+  if (logoImg) {
+    var hideLogo = function () { logoImg.style.display = 'none'; };
+    if (logoImg.complete && logoImg.naturalWidth === 0) { hideLogo(); }
+    else { logoImg.addEventListener('error', hideLogo, { once: true }); }
+  }
+  /* если ни одного фото галереи нет — покупателю пустой раздел не показываем */
+  if (!EDITOR) {
+    var gItems = $$('#gallery .ph');
+    if (gItems.length && gItems.every(function (i) { return i.classList.contains('is-broken'); })) {
+      $('#gallery').hidden = true;
+      var gLink = $('.nav a[href="#gallery"]');
+      if (gLink) { gLink.hidden = true; }
+    }
+  }
+
+  /* ==== КОПИРОВАНИЕ ИМЕНИ ФАЙЛА (только в режиме редактора) ==== */
+  function fallbackCopy(text) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      var done = document.execCommand('copy');
+      ta.remove();
+      toast(done ? 'Скопировано: ' + text : 'Скопируйте вручную: ' + text);
+    } catch (e) { toast('Скопируйте вручную: ' + text); }
+  }
+  if (EDITOR) {
+    $$('.ph').forEach(function (ph) {
+      var name = ph.dataset.file || '';
+      ph.setAttribute('role', 'button');
+      ph.setAttribute('tabindex', '0');
+      ph.setAttribute('aria-label', 'Скопировать имя файла ' + name);
+      var copy = function () {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(name)
+            .then(function () { toast('Скопировано: ' + name); })
+            .catch(function () { fallbackCopy(name); });
+        } else { fallbackCopy(name); }
+      };
+      ph.addEventListener('click', copy);
+      ph.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+      });
+    });
+  }
+
+  /* ==== ФОРМА: СОГЛАСИЕ ==== */
+  var form = $('#leadForm');
+  var agree = $('#agree');
+  var sendBtn = $('#sendBtn');
+  var phone = $('#f-phone');
+  function syncSend() { sendBtn.disabled = !agree.checked; }
+  agree.addEventListener('change', syncSend);
+  window.addEventListener('pageshow', syncSend);
+  syncSend();
+
+  /* ==== МАСКА ТЕЛЕФОНА (с сохранением позиции курсора) ==== */
+  var PREFIX = '+7 (';
+  var digitsOf = function (v) { return v.replace(/\D/g, ''); };
+  function formatPhone(d) {
+    var s = PREFIX + d.slice(0, 3);
+    if (d.length > 3) { s += ') ' + d.slice(3, 6); }
+    if (d.length > 6) { s += '-' + d.slice(6, 8); }
+    if (d.length > 8) { s += '-' + d.slice(8, 10); }
+    return s;
+  }
+  phone.addEventListener('focus', function () { if (!phone.value) { phone.value = PREFIX; } });
+  phone.addEventListener('blur', function () { if (digitsOf(phone.value).length <= 1) { phone.value = ''; } });
+  phone.addEventListener('keydown', function (e) {
+    if (e.key === 'Backspace' && phone.value === PREFIX) { phone.value = ''; e.preventDefault(); }
+  });
+  phone.addEventListener('input', function () {
+    var raw = phone.value;
+    var caret = phone.selectionStart === null ? raw.length : phone.selectionStart;
+    var before = digitsOf(raw.slice(0, caret)).length;
+    var hadPrefix = raw.indexOf('+7') === 0;
+    if (!hadPrefix) { before += 1; }
+    var d = digitsOf(raw);
+    if (hadPrefix) {
+      d = d.slice(1);
+      if (d.length > 10 && (d[0] === '7' || d[0] === '8')) { d = d.slice(1); }
+    } else if (d.length > 10 && (d[0] === '7' || d[0] === '8')) {
+      d = d.slice(1);
+    } else if (d.length === 1 && (d[0] === '7' || d[0] === '8')) {
+      d = '';
+    }
+    d = d.slice(0, 10);
+    var next = d ? formatPhone(d) : (document.activeElement === phone ? PREFIX : '');
+    phone.value = next;
+    var pos = next.length, seen = 0;
+    for (var i = 0; i < next.length; i++) {
+      if (next[i] >= '0' && next[i] <= '9') {
+        seen++;
+        if (seen === before) { pos = i + 1; break; }
+      }
+    }
+    if (!d) { pos = next.length; }
+    phone.setSelectionRange(pos, pos);
+  });
+  form.addEventListener('submit', function (e) {
+    if (digitsOf(phone.value).length !== 11) {
+      e.preventDefault();
+      phone.focus();
+      toast('Введите номер телефона полностью');
     }
   });
-});
-
-// ===== ЧЕКБОКС СОГЛАСИЯ =====
-const agree = document.getElementById('agree');
-const sendBtn = document.getElementById('sendBtn');
-agree.addEventListener('change', () => { sendBtn.disabled = !agree.checked; });
-
-// ===== МАСКА ТЕЛЕФОНА =====
-function maskPhone(inp) {
-  inp.addEventListener('input', e => {
-    let d = e.target.value.replace(/\D/g, '');
-    if (d.startsWith('8')) d = '7' + d.slice(1);
-    if (d.startsWith('7')) d = d.slice(1);
-    d = d.slice(0, 10);
-    let r = '';
-    if (d.length > 0) r = '+7 (' + d.slice(0, 3);
-    if (d.length >= 4) r += ') ' + d.slice(3, 6);
-    if (d.length >= 7) r += '-' + d.slice(6, 8);
-    if (d.length >= 9) r += '-' + d.slice(8, 10);
-    e.target.value = r;
-  });
-}
-maskPhone(document.getElementById('f-phone'));
-
-// ===== ЗАГЛУШКИ ФОТО: КОПИРОВАНИЕ ИМЕНИ =====
-let toastTimer;
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
-}
-document.querySelectorAll('.ph').forEach(ph => {
-  ph.addEventListener('click', () => {
-    const f = ph.dataset.file;
-    navigator.clipboard.writeText(f).then(() => toast('📋 Скопировано: ' + f));
-  });
-});
-
-// ===== СКРЫТЬ ЗАГЛУШКУ ФОТО HERO ПОСЛЕ ЗАГРУЗКИ =====
-const heroCard = document.querySelector('.hero-card');
-const heroImg = heroCard && heroCard.querySelector('.hero-bg');
-const heroPh = document.getElementById('heroPh');
-if (heroImg && heroPh) {
-  if (heroImg.complete && heroImg.naturalWidth > 0) {
-    heroPh.style.display = 'none';
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    toast('Заявка отправлена. Мы перезвоним!');
+    try { history.replaceState(null, '', location.pathname); } catch (e) {}
   }
-  heroImg.addEventListener('load', () => { heroPh.style.display = 'none'; });
-}
 
-// ===== COOKIE-БАННЕР =====
-function cookieChoice(v) {
-  localStorage.setItem('cookieConsent', v);
-  document.getElementById('cookieBar').classList.remove('show');
-}
-if (!localStorage.getItem('cookieConsent')) {
-  setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1200);
-}
+  /* ==== ЯНДЕКС.МЕТРИКА: только после согласия ==== */
+  var ymStarted = false;
+  function initMetrika() {
+    if (!YM_ID || ymStarted) { return; }
+    ymStarted = true;
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t); a = e.getElementsByTagName(t)[0];
+      k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    window.ym(YM_ID, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+  }
 
-// ===== КНОПКА НАВЕРХ =====
-window.addEventListener('scroll', () => {
-  document.getElementById('fabUp').classList.toggle('show', window.scrollY > 400);
-});
+  /* ==== COOKIE-БАННЕР ==== */
+  var cookieBar = $('#cookieBar');
+  function syncFabOffset() {
+    var h = cookieBar.classList.contains('show') ? cookieBar.offsetHeight : 0;
+    document.documentElement.style.setProperty('--cookie-h', h + 'px');
+  }
+  function showCookieBar() { cookieBar.classList.add('show'); syncFabOffset(); }
+  function hideCookieBar() { cookieBar.classList.remove('show'); syncFabOffset(); }
+  function cookieChoice(v) {
+    store.set('cookieConsent', v);
+    hideCookieBar();
+    if (v === 'yes') { initMetrika(); }
+    else if (ymStarted) { location.reload(); }
+  }
+  $('#cookieAccept').addEventListener('click', function () { cookieChoice('yes'); });
+  $('#cookieDecline').addEventListener('click', function () { cookieChoice('no'); });
+  $('#cookieSettings').addEventListener('click', showCookieBar);
+  var consent = store.get('cookieConsent');
+  if (consent === 'yes') { initMetrika(); }
+  else if (consent !== 'no') { setTimeout(showCookieBar, 1200); }
+
+  /* ==== КНОПКА «НАВЕРХ» ==== */
+  var fabUp = $('#fabUp');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) { return; }
+    ticking = true;
+    requestAnimationFrame(function () {
+      fabUp.classList.toggle('show', window.scrollY > 400);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  /* ==== РЕСАЙЗ ==== */
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960) { setMenu(false); }
+    $$('.faq-item.open .faq-a').forEach(function (p) { p.style.maxHeight = p.scrollHeight + 'px'; });
+    syncFabOffset();
+  });
+})();
 </script>
 
-
-</body></html>
+</body>
+</html>
